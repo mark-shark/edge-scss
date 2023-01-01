@@ -98,7 +98,7 @@ Clone to your assets/styles and put the @import url in the project root.
 
 ---
 
-### List @mixin
+### List @mixin => @include ...
 #### base @mixin
 - base()
 - host()
