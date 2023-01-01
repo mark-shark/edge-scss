@@ -121,11 +121,12 @@ Clone to your assets/styles and put the @import url in the project root.
   - make-col-xl-()
   - make-col-xxl-()
 - make-grid()
-- make-grid-wrap()
-- make-grid-header()
-- make-grid-footer()
-- make-grid-aside()
-- make-grid-main()
+  - make-grid-wrap()
+  - make-grid-main()
+  - make-grid-aside()
+  - make-grid-header()
+  - make-grid-footer()
+
 
 ###### images @mixin
 - img-fluid()
