@@ -15,7 +15,7 @@ And put the @import url in the project root style-file.scss
 
 ---
 ## Documentation
-#### @example your-index.html or template component.
+#### @example your index.html or template component.
 
     <!DOCTYPE html>
     <html>
