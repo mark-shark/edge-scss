@@ -1,0 +1,48 @@
+
+//Display grid
+@mixin make-grid-ready($gap1, $gap2) {
+  width: 100%;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 100%));
+  column-gap: calc($gap1 / 2);
+  row-gap: calc($gap2 / 2);
+
+  @include media-min(xs) {
+    grid-template-columns: repeat(2, minmax(0, 100%));
+  }
+  @include media-min(sm) {
+    grid-template-columns: repeat(4, minmax(0, 100%));
+  }
+  @include media-min(md) {
+    grid-template-columns: repeat(6, minmax(0, 100%));
+  }
+  @include media-min(lg) {
+    grid-template-columns: repeat(8, minmax(0, 100%));
+    column-gap: $gap1;
+    row-gap: $gap2;
+  }
+  @include media-min(xl) {
+    grid-template-columns: repeat(10, minmax(0, 100%));
+  }
+  @include media-min(xxl) {
+    grid-template-columns: repeat(12, minmax(0, 100%));
+  }
+}
+
+//Display flex
+@mixin make-row() {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+@mixin make-col-ready() {
+  box-sizing: if(variable-exists(include-column-box-sizing) and $include-column-box-sizing, border-box, null);
+
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+}
+

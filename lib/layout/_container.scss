@@ -1,0 +1,78 @@
+
+@mixin make-container($gutter: $container-padding-x) {
+  --#{$prefix}gutter-x: #{$gutter};
+  --#{$prefix}gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--#{$prefix}gutter-x) * .5); // stylelint-disable-line function-disallowed-list
+  padding-left: calc(var(--#{$prefix}gutter-x) * .5); // stylelint-disable-line function-disallowed-list
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin container() {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@mixin container-xs() {
+  @include media-min(xs-min) {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+}
+
+@mixin container-sm() {
+  @include media-min(sm-min) {
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+}
+
+@mixin container-md() {
+  @include media-min(md-min) {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+}
+
+@mixin container-lg() {
+  @include media-min(lg-min) {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+}
+
+@mixin container-xl() {
+  @include media-min(xl-min) {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+}
+
+@mixin container-xxl() {
+  @include media-min(xxl-min) {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+}
+
+@mixin container-fluid() {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+}

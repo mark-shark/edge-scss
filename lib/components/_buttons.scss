@@ -1,0 +1,113 @@
+//Btn
+//
+@mixin btn--primary() {
+  background-color: $primary;
+  border-color: $primary;
+  color: $white;
+}
+
+@mixin btn--secondary() {
+  background-color: $secondary;
+  border-color: $secondary;
+  color: $white;
+}
+
+@mixin btn--success() {
+  background-color: $success;
+  border-color: $success;
+  color: $white;
+}
+
+@mixin btn--info() {
+  background-color: $info;
+  border-color: $info;
+  color: $white;
+}
+
+@mixin btn--danger() {
+  background-color: $danger;
+  border-color: $danger;
+  color: $white;
+}
+
+@mixin btn--light() {
+  background-color: $light;
+  border-color: $light;
+  color: $dark;
+}
+
+@mixin btn--dark() {
+  background-color: $dark;
+  border-color: $dark;
+  color: $white;
+}
+
+//&:active {}
+//&:hover {}
+//&:visited {}
+//&:focus {}
+//&:focus-visible {}
+//&:focus-within {}
+//&:target {}
+
+//Standard
+@mixin btn() {
+  width: fit-content;
+  width: -moz-fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+
+  height: calc(1em * 2);
+  @include media-min(md) {
+    height: calc(1em * 2.5);
+  }
+  @include media-min(lg) {
+    height: calc(1em * 3);
+  }
+}
+
+@mixin make-btn(
+  $radius,
+  $bg-btn,
+  $color,
+  $padding-x
+) {
+  border-radius: $radius;
+  color: $color;
+  background-color: $bg-btn;
+  padding: 0 $padding-x;
+  @include btn;
+
+  &:active {
+    color: $color;
+    text-decoration: none;
+  }
+  &:hover {
+    background-color: mix(white, $bg-btn, 20%);
+    color: $color;
+    text-decoration: none;
+  }
+  &:visited {
+    color: $color;
+    text-decoration: none;
+  }
+  &:focus {
+    color: $color;
+    text-decoration: none;
+  }
+  &:focus-visible {
+    color: $color;
+    text-decoration: none;
+  }
+  &:focus-within {
+    color: $color;
+    text-decoration: none;
+  }
+  &:target {
+    color: $color;
+    text-decoration: none;
+  }
+}

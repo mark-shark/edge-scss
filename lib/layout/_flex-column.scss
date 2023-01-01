@@ -1,0 +1,72 @@
+
+//Columns col-(1-12)
+@mixin make-col($size: false, $columns: $grid-columns) {
+  @if $size {
+    flex: 0 0 auto;
+    width: percentage(divide($size, $columns));
+
+  } @else {
+    flex: 1 1 0;
+    max-width: 100%;
+  }
+}
+
+//Columns col-xs-(1-12)
+@mixin make-col-sx-($size: false, $columns: $grid-columns) {
+  @if $size {
+    @include media-min(xs) {
+      flex: 0 0 auto;
+      width: percentage(divide($size, $columns));
+    }
+  }
+}
+
+//Columns col-sm-(1-12)
+@mixin make-col-sm-($size: false, $columns: $grid-columns) {
+  @if $size {
+    @include media-min(sm) {
+      flex: 0 0 auto;
+      width: percentage(divide($size, $columns));
+    }
+  }
+}
+
+//Columns col-md-(1-12)
+@mixin make-col-md-($size: false, $columns: $grid-columns) {
+  @if $size {
+    @include media-min(md) {
+      flex: 0 0 auto;
+      width: percentage(divide($size, $columns));
+    }
+  }
+}
+
+//Columns col-lg-(1-12)
+@mixin make-col-lg-($size: false, $columns: $grid-columns) {
+  @if $size {
+    @include media-min(lg) {
+      flex: 0 0 auto;
+      width: percentage(divide($size, $columns));
+    }
+  }
+}
+
+//Columns col-xl-(1-12)
+@mixin make-col-xl-($size: false, $columns: $grid-columns) {
+  @if $size {
+    @include media-min(xl) {
+      flex: 0 0 auto;
+      width: percentage(divide($size, $columns));
+    }
+  }
+}
+
+//Columns col-xxl-(1-12)
+@mixin make-col-xxl-($size: false, $columns: $grid-columns) {
+  @if $size {
+    @include media-min(xxl) {
+      flex: 0 0 auto;
+      width: percentage(divide($size, $columns));
+    }
+  }
+}

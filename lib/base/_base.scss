@@ -1,0 +1,63 @@
+
+@mixin base() {
+  :host {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  *, ::after, ::before {
+    box-sizing: border-box;
+  }
+
+  html {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    display: block;
+    margin: 0;
+    padding: 0;
+    min-width: ($width-xs - 1); // !important min-width: 320px;
+  }
+}
+
+@mixin box-sizing() {
+  *, ::after, ::before {
+    box-sizing: border-box;
+  }
+}
+
+@mixin html() {
+  html {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@mixin body() {
+  body {
+    display: block;
+    margin: 0;
+    padding: 0;
+    min-width: ($width-xs - 1); // !important min-width: 320px;
+  }
+}
+
+@mixin host() {
+  :host {
+    font-size: $font-size;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@mixin clearfix() {
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
