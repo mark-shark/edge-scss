@@ -42,7 +42,7 @@ And put the @import url in the project root style-file.scss
       </body>
     </html>
 
-#### @example in project your style-file.scss or root core.scss
+#### @example in your project style-file.scss or root core.scss
 
     @import "edge-scss/edge-core";  //On Top
 
