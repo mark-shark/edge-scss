@@ -12,7 +12,7 @@ EDGE is simple @mixin library originating from Bootstrap (v5.0).
 
 Install - put the @import url in the project root. 
 
-    @import "../edge-core"; 
+    @import "../edge-scss/edge-core"; 
 
 ---
 
