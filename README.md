@@ -1,6 +1,8 @@
 # EDGE-scss
 
-# Dynamic @mixin library
+Dynamic @mixin library
+---
+
 EDGE is simple @mixin library originating from Bootstrap (v5.0).
 
 ---
@@ -11,7 +13,18 @@ Install - put the @import url in the project root.
 
 ---
 
-@example in your project style.scss or root core.
+@example your-index.html
+
+    <div class="my-container">
+        <div class="my-row">
+            <div class="my-col"></div>
+            <div class="my-col"></div>
+        </div>
+    </div>
+
+---
+
+@example in project your-style.scss or root core.
 
     @import "../edge-core"; //On Top
 
