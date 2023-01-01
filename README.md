@@ -5,7 +5,10 @@
 - To achieve as little as possible in CSS compilation.
 ---
 ## Install
-Clone to your assets/styles directory.
+
+    npm i @edge-code/edge-scss
+
+Or clone to your assets/styles directory.
 
     git clone https://github.com/mark-shark/edge-scss.git
 
