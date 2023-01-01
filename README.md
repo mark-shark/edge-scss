@@ -7,6 +7,10 @@
 ## Install
 Clone to your assets/styles and put the @import url in the project root.
 
+    git clone https://github.com/mark-shark/edge-scss.git
+
+And
+
     @import "edge-scss/edge-core"; 
 
 ---
