@@ -98,7 +98,6 @@ And put the @import url in the project root style-file.scss
     }
 
 ---
-
 ### Breakpoints
 
     "xs"  : 321px
@@ -120,7 +119,6 @@ And put the @import url in the project root style-file.scss
     }
 
 ---
-
 ### Breakpoints Individual
 
     .my-class {
@@ -132,6 +130,7 @@ And put the @import url in the project root style-file.scss
         }
     }
 
+---
 ### Breakpoints GRID default
 
     "0"   : 1 column
@@ -143,7 +142,6 @@ And put the @import url in the project root style-file.scss
     "xxl" : 12 columns
 
 ---
-
 ### List @mixin => @include ...
 ###### base @mixin
 - base();
@@ -190,12 +188,10 @@ And put the @import url in the project root style-file.scss
 ###### We will develop more
 
 ---
-
 #### The library will take care of the rest.
 ### Good luck in your work.
 
 ---
-
 ### (v0.0.4)-alpha
 
 - Start project.
