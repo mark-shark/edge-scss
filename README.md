@@ -17,10 +17,14 @@ Install - put the @import url in the project root.
 
     .my-container {
         @include make-container; //@mixin
+
+        //Your Declaration Content
     }
 
     .my-row {
         @include make-row; //@mixin
+
+        //Your Declaration Content
     }
     
     .my-col {
@@ -28,15 +32,17 @@ Install - put the @import url in the project root.
         @include make-col-md(6); //@mixin col 
         @include make-col-xl(3); //@mixin col
 
+        //Your Declaration Content
+
         @include media-min(xs) {
-            //Yout Declaration Content
+            //Your Declaration Content
         }
 
         @include media-screen-max(950px) { //@mixin Media Query Max
-            //Yout Declaration Content
+            //Your Declaration Content
         }
         @include media-screen-min(951px) { //@mixin Media Query Min
-            //Yout Declaration Content
+            //Your Declaration Content
         }
     }
 
