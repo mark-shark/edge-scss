@@ -1,6 +1,6 @@
 # EDGE-scss
 ## Dynamic @mixin library
-#### EDGE is simple @mixin library originating from Bootstrap (v5.0).
+#### EDGE is simple SCSS @mixin library originating from Bootstrap (v5.0).
 - Primarily created for Angular 7 and newer projects. 
 - To achieve as little as possible in CSS compilation.
 ---
