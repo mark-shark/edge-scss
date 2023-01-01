@@ -43,7 +43,7 @@ And put the @import url in the project root style-file.scss
 
 #### @example in your project style-file.scss or root core.scss
 
-    @import "edge-scss/edge-core";  //On Top
+    @import "node_modules/@edge-code/edge-scss/edge-core";  //On Top
 
     @include host;                  // :host @mixin
     @include html;                  // html  @mixin
@@ -132,6 +132,16 @@ And put the @import url in the project root style-file.scss
         }
     }
 
+### Breakpoints GRID default
+
+    "0"   : 1 column
+    "xs"  : 2 columns
+    "sm"  : 4 columns
+    "md"  : 6 columns
+    "lg"  : 8 columns
+    "xl"  : 10 columns
+    "xxl" : 12 columns
+
 ---
 
 ### List @mixin => @include ...
@@ -158,13 +168,13 @@ And put the @import url in the project root style-file.scss
   - make-col-lg-(1 until 12);
   - make-col-xl-(1 until 12);
   - make-col-xxl-(1 until 12);
+- make-col-grid();
 - make-grid-ready($gap, $gap);
   - make-grid-wrap();
   - make-grid-main();
-  - make-grid-aside();
+  - make-grid-aside($gap, $gap);
   - make-grid-header();
   - make-grid-footer();
-
 
 ###### images @mixin
 - img-fluid();
@@ -186,7 +196,7 @@ And put the @import url in the project root style-file.scss
 
 ---
 
-### (v0.0.3)-alpha
+### (v0.0.4)-alpha
 
 - Start project.
 - Compiled from Bootstrap (v5.0) variables, @mixin, @function.

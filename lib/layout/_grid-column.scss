@@ -25,14 +25,11 @@
   }
 }
 
-//Aside
-@mixin make-grid-aside($gap1, $gap2) {
+//Footer
+@mixin make-grid-footer() {
   width: 100%;
   max-width: 100%;
   grid-column: 1 / 2;
-  display: grid;
-  column-gap: calc($gap1 / 2);
-  row-gap: calc($gap2 / 2);
 
   @include media-min(xs) {
     grid-column: 1 / 3;
@@ -44,15 +41,13 @@
     grid-column: 1 / 7;
   }
   @include media-min(lg) {
-    grid-column: 1 / 3;
-    column-gap: $gap1;
-    row-gap: $gap2;
+    grid-column: 1 / 9;
   }
   @include media-min(xl) {
-    grid-column: 1 / 4;
+    grid-column: 1 / 11;
   }
   @include media-min(xxl) {
-    grid-column: 1 / 4;
+    grid-column: 1 / 13;
   }
 }
 
@@ -82,12 +77,14 @@
   }
 }
 
-
-//Footer
-@mixin make-grid-footer() {
+//Aside
+@mixin make-grid-aside($gap1, $gap2) {
   width: 100%;
   max-width: 100%;
   grid-column: 1 / 2;
+  display: grid;
+  column-gap: calc($gap1 / 2);
+  row-gap: calc($gap2 / 2);
 
   @include media-min(xs) {
     grid-column: 1 / 3;
@@ -99,13 +96,15 @@
     grid-column: 1 / 7;
   }
   @include media-min(lg) {
-    grid-column: 1 / 9;
+    grid-column: 1 / 3;
+    column-gap: $gap1;
+    row-gap: $gap2;
   }
   @include media-min(xl) {
-    grid-column: 1 / 11;
+    grid-column: 1 / 4;
   }
   @include media-min(xxl) {
-    grid-column: 1 / 13;
+    grid-column: 1 / 4;
   }
 }
 
