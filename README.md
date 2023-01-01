@@ -5,6 +5,9 @@ Dynamic @mixin library
 
 EDGE is simple @mixin library originating from Bootstrap (v5.0).
 
+- Primarily created for Angular projects. 
+- To achieve as little as possible in CSS compilation.
+
 ---
 
 Install - put the @import url in the project root. 
@@ -72,3 +75,13 @@ Good luck in your work.
 ---
 
 (v0.0.1)
+
+- Start project.
+- Compiled from Bootstrap (v5.0) variables, @mixin, @function.
+- Own function for
+    - media-query 
+    - col
+    - container
+    - btn
+    - grid - wrap, header, aside, main, footer
+---
