@@ -5,11 +5,11 @@
 - To achieve as little as possible in CSS compilation.
 ---
 ## Install
-Clone to your assets/styles and put the @import url in the project root.
+Clone to your assets/styles directory.
 
     git clone https://github.com/mark-shark/edge-scss.git
 
-And
+And put the @import url in the project root file.
 
     @import "edge-scss/edge-core"; 
 
