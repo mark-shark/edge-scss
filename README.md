@@ -8,13 +8,9 @@
 
     npm i @edge-code/edge-scss
 
-Or clone to your assets/styles directory.
-
-    git clone https://github.com/mark-shark/edge-scss.git
-
 And put the @import url in the project root style-file.scss
 
-    @import "edge-scss/edge-core"; 
+    @import "node_modules/@edge-code/edge-scss/edge-core";
 
 ---
 ## Documentation
@@ -103,48 +99,82 @@ And put the @import url in the project root style-file.scss
 
 ---
 
+### Breakpoints
+
+    "xs"  : 321px
+    "sm"  : 576px
+    "md"  : 768px
+    "lg"  : 992px
+    "xl"  : 1200px
+    "xxl" : 1400px
+
+    .my-class {
+        // Example Media Query Min
+        @include media-min(md) { 
+            //Your Declaration Content or Next @mixin
+        }
+        //Or Max
+        @include media-max(md) { 
+            //Your Declaration Content or Next @mixin
+        }
+    }
+
+---
+
+### Breakpoints Individual
+
+    .my-class {
+        @include media-screen-max(950px) {  // @mixin Media Query Max
+            //Your Declaration Content or Next @mixin
+        }
+        @include media-screen-min(951px) {  // @mixin Media Query Min
+            //Your Declaration Content or Next @mixin
+        }
+    }
+
+---
+
 ### List @mixin => @include ...
 ###### base @mixin
-- base()
-- host()
-- html()
-- box-sizing()
-- clearfix()
-- list-unstyled()
+- base();
+- host();
+- html();
+- box-sizing();
+- clearfix();
+- list-unstyled();
 
 ###### breakpoints @mixin
-- media-screen-min()
-- media-screen-max()
-- media-min()
-- media-max()
+- media-screen-min();
+- media-screen-max();
+- media-min();
+- media-max();
 
 ###### layout @mixin
-- make-row()
-- make-row-ready()
-- make-col-()
-  - make-col-xs-()
-  - make-col-sm-()
-  - make-col-md-()
-  - make-col-lg-()
-  - make-col-xl-()
-  - make-col-xxl-()
-- make-grid()
-  - make-grid-wrap()
-  - make-grid-main()
-  - make-grid-aside()
-  - make-grid-header()
-  - make-grid-footer()
+- make-row();
+- make-col-(1 until 12 or empty);
+  - make-col-xs-(1 until 12);
+  - make-col-sm-(1 until 12);
+  - make-col-md-(1 until 12);
+  - make-col-lg-(1 until 12);
+  - make-col-xl-(1 until 12);
+  - make-col-xxl-(1 until 12);
+- make-grid-ready($gap, $gap);
+  - make-grid-wrap();
+  - make-grid-main();
+  - make-grid-aside();
+  - make-grid-header();
+  - make-grid-footer();
 
 
 ###### images @mixin
-- img-fluid()
-- img-thumbnail()
-- figure()
-- figure-img()
-- figure-caption()
+- img-fluid();
+- img-thumbnail();
+- figure();
+- figure-img();
+- figure-caption();
 
 ###### buttons @mixin
-- make-btn()
+- make-btn($radius, $bg-btn, $color, $padding-x);
 - 
 
 ###### We will develop more
@@ -156,7 +186,7 @@ And put the @import url in the project root style-file.scss
 
 ---
 
-### (v0.0.1)
+### (v0.0.3)-alpha
 
 - Start project.
 - Compiled from Bootstrap (v5.0) variables, @mixin, @function.

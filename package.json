@@ -1,6 +1,6 @@
 {
   "name": "@edge-code/edge-scss",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Mixin SCSS dynamic library",
   "main": "index.js",
   "directories": {
