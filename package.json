@@ -1,7 +1,17 @@
 {
   "name": "@edge-code/edge-scss",
-  "version": "0.0.4",
-  "description": "Mixin SCSS dynamic library",
+  "version": "0.0.5-alpha1",
+  "description": "Mixin SCSS dynamic library for developing responsive.",
+  "keywords": [
+    "scss",
+    "sass",
+    "mixin",
+    "dynamic",
+    "responsive",
+    "front-end",
+    "library",
+    "web"
+  ],
   "main": "index.js",
   "directories": {
     "lib": "lib"
@@ -13,7 +23,7 @@
     "type": "git",
     "url": "git+https://github.com/mark-shark/edge-scss.git"
   },
-  "author": "Marek Šerk",
+  "author": "mark-shark",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mark-shark/edge-scss/issues"
