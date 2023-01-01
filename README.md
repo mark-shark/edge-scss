@@ -34,10 +34,16 @@ Install - put the @import url in the project root.
 
         //Your Declaration Content
 
-        @include media-min(xs) {
+        // Example Media Query Min
+        @include media-min(md) { //@mixin @media (min-width: 768px)
+            //Your Declaration Content
+        }
+        //Or Max
+        @include media-max(md) { //@mixin @media (max-width: 767px)
             //Your Declaration Content
         }
 
+        //Or Individual
         @include media-screen-max(950px) { //@mixin Media Query Max
             //Your Declaration Content
         }
