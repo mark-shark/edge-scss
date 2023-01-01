@@ -1,6 +1,6 @@
 # EDGE-scss
 ## Dynamic @mixin library
-### EDGE is simple @mixin library originating from Bootstrap (v5.0).
+#### EDGE is simple @mixin library originating from Bootstrap (v5.0).
 - Primarily created for Angular projects. 
 - To achieve as little as possible in CSS compilation.
 ---
@@ -13,13 +13,14 @@ Clone to your assets/styles and put the @import url in the project root.
 ## Documentation
 #### @example your-index.html or template component.
 
+    <!DOCTYPE html>
     <html>
       <head>
         < .../>
       </head>
       <body>
-
         < .../>
+
         <div class="my-container">
             <div class="my-row">
                 <div class="my-col">
@@ -32,8 +33,8 @@ Clone to your assets/styles and put the @import url in the project root.
                 </div>
             </div>
         </div>
-        < .../>
 
+        < .../>
       </body>
     </html>
 
