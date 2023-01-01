@@ -99,7 +99,7 @@ Clone to your assets/styles and put the @import url in the project root.
 ---
 
 ### List @mixin => @include ...
-#### base @mixin
+###### base @mixin
 - base()
 - host()
 - html()
@@ -107,13 +107,13 @@ Clone to your assets/styles and put the @import url in the project root.
 - clearfix()
 - list-unstyled()
 
-#### breakpoints @mixin
+###### breakpoints @mixin
 - media-screen-min()
 - media-screen-max()
 - media-min()
 - media-max()
 
-#### layout @mixin
+###### layout @mixin
 - make-row()
 - make-row-ready()
 - make-col-()
@@ -130,20 +130,22 @@ Clone to your assets/styles and put the @import url in the project root.
 - make-grid-aside()
 - make-grid-main()
 
-### Components
-#### images @mixin
+###### images @mixin
 - img-fluid()
 - img-thumbnail()
 - figure()
 - figure-img()
 - figure-caption()
 
-#### buttons @mixin
+###### buttons @mixin
 - make-btn()
 - 
 
+###### We will develop more
+
 ---
 
+#### The library will take care of the rest.
 ### Good luck in your work.
 
 ---
