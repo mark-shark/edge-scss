@@ -100,7 +100,7 @@ And put the @import url in the project root style-file.scss
 ---
 ### Breakpoints
 
-    "xs"  : 321px
+    "xs"  : 0
     "sm"  : 576px
     "md"  : 768px
     "lg"  : 992px
@@ -144,18 +144,20 @@ And put the @import url in the project root style-file.scss
 ---
 ### List @mixin => @include ...
 ###### base @mixin
-- base();
-- host();
-- html();
-- box-sizing();
-- clearfix();
-- list-unstyled();
+- make-base($val);
+- make-host();
+- make-html();
+- make-body($val);
+- make-box-sizing();
+- make-clearfix();
+- make-list-unstyled();
 
 ###### breakpoints @mixin
-- media-screen-min();
-- media-screen-max();
-- media-min();
-- media-max();
+- media-screen-min(1001px) { @content };
+- media-screen-max(1000px) { @content };
+- media-min($val) { @content };
+- media-max($val) { @content };
+- media-between($val, $val) { @content };
 
 ###### layout @mixin
 - make-row();
@@ -175,15 +177,18 @@ And put the @import url in the project root style-file.scss
   - make-grid-footer();
 
 ###### images @mixin
-- img-fluid();
-- img-thumbnail();
-- figure();
-- figure-img();
-- figure-caption();
+- make-img-fluid();
+- make-img-thumbnail();
+- make-figure();
+- make-figure-img();
+- make-figure-caption();
 
 ###### buttons @mixin
 - make-btn($radius, $bg-btn, $color, $padding-x);
 - 
+
+###### colors @mixin
+- make-color-scheme($name);
 
 ###### We will develop more
 
@@ -191,16 +196,4 @@ And put the @import url in the project root style-file.scss
 #### The library will take care of the rest.
 ### Good luck in your work.
 
----
-### (v0.0.5)-alpha1
-
-- Start project.
-- Compiled from Bootstrap (v5.0) variables, @mixin, @function.
-- Own @mixin for:
-    - media-query 
-    - col
-    - container
-    - btn
-    - grid - wrap, header, aside, main, footer
-    - and more
 ---

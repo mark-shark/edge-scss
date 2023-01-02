@@ -1,51 +1,35 @@
 
-@mixin base() {
-  :host {
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  *, ::after, ::before {
-    box-sizing: border-box;
-  }
-
-  html {
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    display: block;
-    margin: 0;
-    padding: 0;
-    min-width: ($width-xs - 1); // !important min-width: 320px;
-  }
-}
-
-@mixin box-sizing() {
+@mixin make-box-sizing() {
   *, ::after, ::before {
     box-sizing: border-box;
   }
 }
 
-@mixin html() {
+@mixin make-html() {
   html {
     margin: 0;
     padding: 0;
   }
 }
 
-@mixin body() {
-  body {
-    display: block;
-    margin: 0;
-    padding: 0;
-    min-width: ($width-xs - 1); // !important min-width: 320px;
+@mixin make-body($val: false) {
+  @if $val {
+    body {
+      display: block;
+      margin: 0;
+      padding: 0;
+      min-width: $val;
+    }
+  } @else {
+    body {
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
   }
 }
 
-@mixin host() {
+@mixin make-host() {
   :host {
     font-size: $font-size;
     box-sizing: border-box;
@@ -54,10 +38,17 @@
   }
 }
 
-@mixin clearfix() {
+@mixin make-clearfix() {
   &::after {
     display: block;
     clear: both;
     content: "";
   }
+}
+
+@mixin make-base($val: false) {
+  @include make-host;
+  @include make-box-sizing;
+  @include make-html;
+  @include make-body($val);
 }

@@ -9,6 +9,7 @@ $include-column-box-sizing: true !default;
 
 //Base Mixins
 @import "lib/base/breakpoints";
+@import "lib/base/color-scheme";
 @import "lib/base/base";
 @import "lib/base/image";
 @import "lib/base/lists";

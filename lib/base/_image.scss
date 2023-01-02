@@ -7,7 +7,7 @@
 //
 // Keep images from scaling beyond the width of their parents.
 
-@mixin img-fluid {
+@mixin make-img-fluid {
   // Part 1: Set a maximum relative to the parent
   max-width: 100%;
   // Part 2: Override the height to auto, otherwise images will be stretched
@@ -15,7 +15,7 @@
   height: auto;
 }
 
-@mixin img-thumbnail {
+@mixin make-img-thumbnail {
   padding: $thumbnail-padding;
   background-color: $thumbnail-bg;
   border: $thumbnail-border-width solid $thumbnail-border-color;
@@ -30,17 +30,17 @@
 // Figures
 //
 
-@mixin figure {
+@mixin make-figure {
   // Ensures the caption's text aligns with the image.
   display: inline-block;
 }
 
-@mixin figure-img {
+@mixin make-figure-img {
   margin-bottom: $spacer * .5;
   line-height: 1;
 }
 
-@mixin figure-caption {
+@mixin make-figure-caption {
   @include font-size($figure-caption-font-size);
   color: $figure-caption-color;
 }
