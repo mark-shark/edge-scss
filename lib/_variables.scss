@@ -5,7 +5,7 @@ $lin-height:                  20px !default;  // 1em;
 //Aspect 16:9
 
 //Media query
-$width-xs: 321px; //Phone
+$width-xs: 0px; //Phone
 $xs-min: $width-xs;
 
 $width-sm: 576px; //Phone
@@ -16,9 +16,6 @@ $md-min: $width-md;
 
 $width-lg: 992px; //Tablet
 $lg-min: $width-lg;
-
-$width-lv: 1025px; //Tablet iPad Pro
-$lv-min: $width-lv;
 
 $width-xl: 1200px; //Desktop
 $xl-min: $width-xl;
@@ -32,7 +29,6 @@ $breakpoints: (
   "sm":  $sm-min,
   "md":  $md-min,
   "lg":  $lg-min,
-  "lv":  $lv-min,
   "xl":  $xl-min,
   "xxl": $xxl-min,
 );

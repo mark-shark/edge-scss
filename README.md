@@ -1,5 +1,7 @@
 # EDGE-scss
-## Dynamic @mixin library
+
+---
+### SCSS Dynamic @mixin library for developing responsive.
 #### EDGE is simple SCSS @mixin library originating from Bootstrap (v5.0).
 - Primarily created for Angular 7 and newer. 
 - To achieve as little as possible in CSS compilation.
@@ -45,10 +47,10 @@ And put the @import url in the project root style-file.scss
 
     @import "node_modules/@edge-code/edge-scss/edge-core";  //On Top
 
-    @include host;                  // :host @mixin
-    @include html;                  // html  @mixin
-    @include body;                  // body  @mixin
-    @include box-sizing;            // box-sizing  @mixin
+    @include make-host;                  // :host @mixin
+    @include make-html;                  // html  @mixin
+    @include make-body();                // body  @mixin
+    @include make-box-sizing;            // box-sizing  @mixin
 
     .my-container {
         @include make-container;    // .container  @mixin
@@ -100,7 +102,7 @@ And put the @import url in the project root style-file.scss
 ---
 ### Breakpoints
 
-    "xs"  : 321px
+    "xs"  : 0
     "sm"  : 576px
     "md"  : 768px
     "lg"  : 992px
@@ -144,18 +146,20 @@ And put the @import url in the project root style-file.scss
 ---
 ### List @mixin => @include ...
 ###### base @mixin
-- base();
-- host();
-- html();
-- box-sizing();
-- clearfix();
-- list-unstyled();
+- make-base($val);
+- make-host();
+- make-html();
+- make-body($val);
+- make-box-sizing();
+- make-clearfix();
+- make-list-unstyled();
 
 ###### breakpoints @mixin
-- media-screen-min();
-- media-screen-max();
-- media-min();
-- media-max();
+- media-screen-min(1001px) { @content };
+- media-screen-max(1000px) { @content };
+- media-min($val) { @content };
+- media-max($val) { @content };
+- media-between($val, $val) { @content };
 
 ###### layout @mixin
 - make-row();
@@ -175,32 +179,20 @@ And put the @import url in the project root style-file.scss
   - make-grid-footer();
 
 ###### images @mixin
-- img-fluid();
-- img-thumbnail();
-- figure();
-- figure-img();
-- figure-caption();
+- make-img-fluid();
+- make-img-thumbnail();
+- make-figure();
+- make-figure-img();
+- make-figure-caption();
 
 ###### buttons @mixin
 - make-btn($radius, $bg-btn, $color, $padding-x);
-- 
+
+###### colors @mixin
+- make-color-scheme($name);
 
 ###### We will develop more
 
 ---
 #### The library will take care of the rest.
 ### Good luck in your work.
-
----
-### (v0.0.5)-alpha1
-
-- Start project.
-- Compiled from Bootstrap (v5.0) variables, @mixin, @function.
-- Own @mixin for:
-    - media-query 
-    - col
-    - container
-    - btn
-    - grid - wrap, header, aside, main, footer
-    - and more
----
