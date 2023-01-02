@@ -1,5 +1,7 @@
 # EDGE-scss
-## Dynamic @mixin library
+
+---
+### SCSS Dynamic @mixin library for developing responsive.
 #### EDGE is simple SCSS @mixin library originating from Bootstrap (v5.0).
 - Primarily created for Angular 7 and newer. 
 - To achieve as little as possible in CSS compilation.
@@ -45,10 +47,10 @@ And put the @import url in the project root style-file.scss
 
     @import "node_modules/@edge-code/edge-scss/edge-core";  //On Top
 
-    @include host;                  // :host @mixin
-    @include html;                  // html  @mixin
-    @include body;                  // body  @mixin
-    @include box-sizing;            // box-sizing  @mixin
+    @include make-host;                  // :host @mixin
+    @include make-html;                  // html  @mixin
+    @include make-body();                // body  @mixin
+    @include make-box-sizing;            // box-sizing  @mixin
 
     .my-container {
         @include make-container;    // .container  @mixin
@@ -185,7 +187,6 @@ And put the @import url in the project root style-file.scss
 
 ###### buttons @mixin
 - make-btn($radius, $bg-btn, $color, $padding-x);
-- 
 
 ###### colors @mixin
 - make-color-scheme($name);
@@ -195,5 +196,3 @@ And put the @import url in the project root style-file.scss
 ---
 #### The library will take care of the rest.
 ### Good luck in your work.
-
----
