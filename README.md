@@ -176,6 +176,10 @@ How use [@mixin and @include](https://sass-lang.com/documentation/at-rules/mixin
 
 ###### layout @mixin
 - make-row();
+- make-row-cols();
+- make-col-ready();
+- make-col-auto();
+- make-col-offset();
 - make-col-(1 until 12 or empty);
   - make-col-xs-(1 until 12);
   - make-col-sm-(1 until 12);
@@ -183,7 +187,9 @@ How use [@mixin and @include](https://sass-lang.com/documentation/at-rules/mixin
   - make-col-lg-(1 until 12);
   - make-col-xl-(1 until 12);
   - make-col-xxl-(1 until 12);
-- make-col-grid();
+- make-cssgrid();
+- make-grid-columns();
+- make-grid-col();
 - make-grid-ready($gap, $gap);
   - make-grid-wrap();
   - make-grid-main();

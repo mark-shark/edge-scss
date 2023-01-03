@@ -78,13 +78,13 @@
 }
 
 //Aside
-@mixin make-grid-aside($gap1, $gap2) {
+@mixin make-grid-aside($gap1: false, $gap2: false) {
   width: 100%;
   max-width: 100%;
   grid-column: 1 / 2;
   display: grid;
-  column-gap: calc($gap1 / 2);
-  row-gap: calc($gap2 / 2);
+  column-gap: ($gap1 / 2);
+  row-gap: ($gap2 / 2);
 
   @include media-min(xs) {
     grid-column: 1 / 3;
@@ -106,10 +106,4 @@
   @include media-min(xxl) {
     grid-column: 1 / 4;
   }
-}
-
-//Column
-@mixin make-col-grid() {
-  width: 100%;
-  max-width: 100%;
 }

@@ -1,12 +1,12 @@
 
 //Display grid
-@mixin make-grid-ready($gap1, $gap2) {
+@mixin make-grid-ready($gap1: false, $gap2: false) {
   width: 100%;
   max-width: 100%;
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 100%));
-  column-gap: calc($gap1 / 2);
-  row-gap: calc($gap2 / 2);
+  column-gap: ($gap1 / 2);
+  row-gap: ($gap2 / 2);
 
   @include media-min(xs) {
     grid-template-columns: repeat(2, minmax(0, 100%));
@@ -30,7 +30,7 @@
   }
 }
 
-//Display flex
+//  Row Display flex
 @mixin make-row($gutter: $grid-gutter-width) {
   --#{$prefix}gutter-x: #{$gutter};
   --#{$prefix}gutter-y: 0;
@@ -44,6 +44,7 @@
   margin-left: calc(-.5 * var(--#{$prefix}gutter-x)); // stylelint-disable-line function-disallowed-list
 }
 
+//  Column Ready flex
 @mixin make-col-ready() {
   box-sizing: if(variable-exists(include-column-box-sizing) and $include-column-box-sizing, border-box, null);
 
@@ -55,6 +56,7 @@
   margin-top: var(--#{$prefix}gutter-y);
 }
 
+//  Column Auto flex
 @mixin make-col-auto() {
   flex: 0 0 auto;
   width: auto;
@@ -70,7 +72,7 @@
 // Specify on a parent element(e.g., .row) to force immediate children into NN
 // number of columns. Supports wrapping to new lines, but does not do a Masonry
 // style grid.
-@mixin row-cols($count) {
+@mixin make-row-cols($count) {
   > * {
     flex: 0 0 auto;
     width: divide(100%, $count);
@@ -99,7 +101,7 @@
       @if $grid-row-columns > 0 {
         @for $i from 1 through $grid-row-columns {
           .row-cols#{$infix}-#{$i} {
-            @include row-cols($i);
+            @include make-row-cols($i);
           }
         }
       }
@@ -165,4 +167,10 @@
       }
     }
   }
+}
+
+//Column
+@mixin make-grid-col() {
+  width: 100%;
+  max-width: 100%;
 }
