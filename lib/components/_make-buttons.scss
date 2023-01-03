@@ -1,0 +1,117 @@
+@use "sass:meta";
+
+//Btn
+//
+@mixin btn--primary() {
+  background-color: $primary;
+  border-color: $primary;
+  color: $white;
+}
+
+@mixin btn--secondary() {
+  background-color: $secondary;
+  border-color: $secondary;
+  color: $white;
+}
+
+@mixin btn--success() {
+  background-color: $success;
+  border-color: $success;
+  color: $white;
+}
+
+@mixin btn--info() {
+  background-color: $info;
+  border-color: $info;
+  color: $white;
+}
+
+@mixin btn--danger() {
+  background-color: $danger;
+  border-color: $danger;
+  color: $white;
+}
+
+@mixin btn--light() {
+  background-color: $light;
+  border-color: $light;
+  color: $dark;
+}
+
+@mixin btn--dark() {
+  background-color: $dark;
+  border-color: $dark;
+  color: $white;
+}
+
+//Standard
+@mixin make-btn-ready($gutter: $grid-gutter-width) {
+  --#{$prefix}gutter-x: 0;
+  --#{$prefix}gutter-y: #{$gutter};
+
+  width: fit-content;
+  width: -moz-fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+
+  height: calc(1.5 * var(--#{$prefix}gutter-y));
+  @include media-min(md) {
+    height: calc(1.667 * var(--#{$prefix}gutter-y));
+  }
+  @include media-min(lg) {
+    height: calc(2 * var(--#{$prefix}gutter-y));
+  }
+}
+
+@mixin make-btn(
+  $radius: false,
+  $bg-btn: false,
+  $color: false,
+  $padding: false,
+  $width: false,
+) {
+  @include make-btn-ready();
+
+  @if $bg-btn != false or $bg-btn != null {
+    border-radius: $radius;
+    color: $color;
+    background-color: $bg-btn;
+    padding: 0 $padding;
+    width: $width;
+
+    @include make-force-state(active){
+      color: $color;
+      text-decoration: none;
+    }
+    @include make-force-state(hover){
+      background-color: mix(white, $bg-btn, 20%);
+      color: $color;
+      text-decoration: none;
+    }
+    @include make-force-state(visited) {
+      color: $color;
+      text-decoration: none;
+    }
+  } @else {
+    border-radius: $radius;
+    color: $color;
+    padding: 0 $padding;
+    width: $width;
+
+    @include make-force-state(active){
+      color: $color;
+      text-decoration: none;
+    }
+    @include make-force-state(hover){
+      color: $color;
+      text-decoration: none;
+    }
+    @include make-force-state(visited) {
+      color: $color;
+      text-decoration: none;
+    }
+  }
+}
