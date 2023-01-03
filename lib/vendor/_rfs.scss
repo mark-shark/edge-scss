@@ -49,7 +49,7 @@ $rfs-safari-iframe-resize-bug-fix: false !default;
 // Disable RFS by setting $enable-rfs to false
 $enable-rfs: true !default;
 
-// Cache $rfs-base-value unit
+// Cache $rfs-base_core-value unit
 $rfs-base-value-unit: unit($rfs-base-value);
 
 //@function divide($dividend, $divisor, $precision: 10) {
@@ -94,7 +94,7 @@ $rfs-base-value-unit: unit($rfs-base-value);
 //  @return $result;
 //}
 
-// Remove px-unit from $rfs-base-value for calculations
+// Remove px-unit from $rfs-base_core-value for calculations
 @if $rfs-base-value-unit == px {
   $rfs-base-value: divide($rfs-base-value, $rfs-base-value * 0 + 1);
 }

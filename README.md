@@ -2,11 +2,21 @@
 
 ---
 ### SCSS Dynamic @mixin library for developing responsive.
-#### EDGE is simple SCSS @mixin library originating from Bootstrap (v5.0).
+#### EDGE is simple SCSS @mixin library originating from [Bootstrap](https://getbootstrap.com/) (v5.0).
 - Primarily created for Angular 7 and newer. 
 - To achieve as little as possible in CSS compilation.
+
+---
+#### Assumptions 
+Experiences with SCSS, SASS, NPM.
+
+---
+##### [Playground](https://stackblitz.com/edit/angular-ivy-cdlzyj?file=src/app/app.component.scss)
+
 ---
 ## Install
+
+Use [NPM](https://www.npmjs.com/) and [@SASS](https://sass-lang.com/) 
 
     npm i @edge-code/edge-scss
 
@@ -15,7 +25,10 @@ And put the @import url in the project root style-file.scss
     @import "node_modules/@edge-code/edge-scss/edge-core";
 
 ---
-## Documentation
+## Usage and Documentation
+
+How use [@mixin and @include](https://sass-lang.com/documentation/at-rules/mixin).
+
 #### @example your index.html or template component.
 
     <!DOCTYPE html>
@@ -186,7 +199,7 @@ And put the @import url in the project root style-file.scss
 - make-figure-caption();
 
 ###### buttons @mixin
-- make-btn($radius, $bg-btn, $color, $padding-x);
+- make-btn($radius, $bg-btn, $color, $padding, $width);
 
 ###### colors @mixin
 - make-color-scheme($name);
