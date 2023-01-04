@@ -1,6 +1,6 @@
 {
   "name": "@edge-code/edge-scss",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "SCSS Dynamic @mixin library for developing responsive.",
   "keywords": [
     "scss",
