@@ -5,7 +5,7 @@ $lin-height:                  20px !default;  // 1em;
 //Aspect 16:9
 
 //Media query
-$width-xs: 0px; //Phone
+$width-xs: 321px; //Phone
 $xs-min: $width-xs;
 
 $width-sm: 576px; //Phone
@@ -504,7 +504,7 @@ $paragraph-margin-bottom:   1rem !default;
 
 // scss-docs-start grid-breakpoints
 $grid-breakpoints: (
-  xs: 0,
+  xs: 321px,
   sm: 576px,
   md: 768px,
   lg: 992px,
