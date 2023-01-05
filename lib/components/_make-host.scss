@@ -1,0 +1,19 @@
+@mixin make-host($val: false) {
+  @if $val {
+    :host {
+      font-size: $val;
+      line-height: ($val + 6);
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  } @else {
+    :host {
+      font-size: $base-font-size;
+      line-height: $base-line-height;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  }
+}

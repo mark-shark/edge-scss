@@ -1,0 +1,28 @@
+@mixin make($name-class: false) {
+  @if $name-class {
+    div {
+      &.#{$name-class} {
+        @content
+      }
+    }
+  } @else {
+    .edge-error {
+      position: relative;
+
+      &:before {
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        content: 'Edge Error';
+        font-size: 30px;
+        font-weight: bold;
+        color: white;
+        position: absolute;
+        width: 100vw !important;
+        min-height: 50vw !important;
+        background-color: red;
+      }
+    }
+  }
+}

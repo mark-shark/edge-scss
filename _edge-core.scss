@@ -1,34 +1,32 @@
-$include-column-box-sizing: true !default;
-
+//  Function and Variables
 @import "lib/function";
 @import "lib/variables";
 @import "lib/maps";
 
-//  Vendor
-@import "lib/vendor/rfs";
+//  Vendor libs
+@import "vendor/bootstrap";
 
-//  Base Mixins
-@import "lib/base_core/breakpoints";
-@import "lib/base_core/force-state";
-@import "lib/base_core/base";
-@import "lib/base_core/box-shadow";
-@import "lib/base_core/border-radius";
-@import "lib/base_core/gradients";
-@import "lib/base_core/trasition";
-@import "lib/base_core/forms";
+//  Helpers Mixin libs
+@import "lib/heplers/breakpoints";
+@import "lib/heplers/force-state";
+@import "lib/heplers/color-scheme";
 
-//  Layout Mixins
+//  Components Mixins libs
+@import "lib/components/make-host";
+@import "lib/components/make-html";
+@import "lib/components/make-body";
+@import "lib/components/make-clearfix";
+@import "lib/components/make-box-sizing";
+@import "lib/components/make-base";
+@import "lib/components/make-image";
+@import "lib/components/make-lists";
+@import "lib/components/make-buttons";
+
+//  Layout Mixins libs
 @import "lib/layout/make-grid";
 @import "lib/layout/make-grid-column";
 @import "lib/layout/make-column";
 @import "lib/layout/make-container";
 
-//  Components Mixins
-@import "lib/components/make-base";
-@import "lib/components/make-color-scheme";
-@import "lib/components/make-image";
-@import "lib/components/make-lists";
-@import "lib/components/make-buttons";
-@import "lib/components/make-forms";
-
-//  Archive
+//  Make Mixin lib
+@import "lib/make/make";

@@ -1,6 +1,13 @@
 @mixin make-base($val: false) {
-  @include make-host;
-  @include make-box-sizing;
-  @include make-html;
-  @include make-body($val);
+  @if $val {
+    @include make-host;
+    @include make-box-sizing;
+    @include make-html;
+    @include make-body($val);
+  } @else {
+    @include make-host;
+    @include make-box-sizing;
+    @include make-html;
+    @include make-body();
+  }
 }
