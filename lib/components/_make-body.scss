@@ -1,0 +1,16 @@
+@mixin make-body($val: false) {
+  @if $val {
+    body {
+      display: block;
+      margin: 0;
+      padding: 0;
+      min-width: $val;
+    }
+  } @else {
+    body {
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
