@@ -3,11 +3,11 @@
   width: 100%;
   max-width: 100%;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: wrap;
 
   margin-top: 0;
-  margin-right: calc(-.5 * #{$grid-gutter-width});
-  margin-left: calc(-.5 * #{$grid-gutter-width});
+  margin-right: calc(#{$grid-gutter-width} * -.5);
+  margin-left: calc(#{$grid-gutter-width} * -.5);
 }
 
 // Row columns

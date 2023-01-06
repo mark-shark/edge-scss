@@ -10,6 +10,8 @@
 #### Assumptions 
 Experiences with SCSS, SASS, NPM.
 
+@Mixins are modified and treated to be reusable. For some you can add custom values.
+
 ---
 ##### [Playground](https://stackblitz.com/edit/angular-ivy-cdlzyj?file=src/app/app.component.scss)
 
