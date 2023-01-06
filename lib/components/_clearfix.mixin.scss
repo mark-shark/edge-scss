@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 @mixin make-clearfix() {
   &::after {
     display: block;

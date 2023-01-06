@@ -1,9 +1,11 @@
+@charset "utf-8";
+
 $edge-prefix: edge- !default;
 $prefix: $edge-prefix !default;
 
 //Font size
 $base-font-size:                   16px !default;   // 1rem
-$base-line-height:                 ($base-font-size + 6) !default;
+$base-line:                 ($base-font-size * 1.75) !default;
 
 //Aspect 16:9
 
@@ -32,17 +34,17 @@ $width-xxl: 1400px !default; //Desktop
 $xxl-min: $width-xxl;
 $xxl-max: ($width-xxl - .2);
 
-$width-xxxl: 1680px !default; //Desktop 2K EDGE-Dev
-$xxxl-min: $width-xxxl;
-$xxxl-max: ($width-xxxl - .2);
+$width-huge: 1680px !default; //Desktop 2K EDGE-Dev
+$huge-min: $width-huge;
+$huge-max: ($width-huge - .2);
 
 //Break point maps
 $breakpoints: (
-  "xs":  $xs-min,
-  "sm":  $sm-min,
-  "md":  $md-min,
-  "lg":  $lg-min,
-  "xl":  $xl-min,
-  "xxl": $xxl-min,
-  "xxxl": $xxxl-min,
+  "xs"  : $xs-min,
+  "sm"  : $sm-min,
+  "md"  : $md-min,
+  "lg"  : $lg-min,
+  "xl"  : $xl-min,
+  "xxl" : $xxl-min,
+  "huge": $huge-min,
 ) !default;

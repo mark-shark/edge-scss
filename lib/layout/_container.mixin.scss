@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 //  Container
 @mixin make-container($size: false, $width: $container-max-widths) {
   @if $size {

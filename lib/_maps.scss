@@ -1,3 +1,4 @@
+@charset "utf-8";
 
 //Force-state map
 $force-state: (
@@ -17,7 +18,7 @@ $container-max-widths: (
   lg    : 960px,
   xl    : 1140px,
   xxl   : 1320px,
-  xxxl  : 1800px,
+  huge  : 1600px,
   fluid : 100%
 ) !default;
 // scss-docs-end container-max-widths

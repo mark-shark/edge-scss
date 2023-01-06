@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 @mixin make-box-sizing() {
   *, ::after, ::before {
     box-sizing: border-box;

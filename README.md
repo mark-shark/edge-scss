@@ -20,7 +20,7 @@ Experiences with SCSS, SASS, NPM.
 
 Use [NPM](https://www.npmjs.com/) and [@SASS](https://sass-lang.com/) 
 
-    npm install edge-scss@0.1.4-alpha2
+    npm install edge-scss@0.1.4-alpha3
 
 And put the @import url in the project root style-file.scss
 
@@ -61,6 +61,8 @@ How use [@mixin and @include](https://sass-lang.com/documentation/at-rules/mixin
 #### In your project style-file.scss or root core.scss
 
 @example.scss
+
+    @import "your-variables";
 
     @import "node_modules/@edge-code/edge-scss/edge-core";  //On Top
 

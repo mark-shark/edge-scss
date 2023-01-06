@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 //Display grid
 @mixin make-grid-ready($col-gap: false, $row-gap: false) {
   width: 100%;
