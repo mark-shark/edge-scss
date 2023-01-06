@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 @mixin make($name-class: false) {
   @if $name-class {
     div {

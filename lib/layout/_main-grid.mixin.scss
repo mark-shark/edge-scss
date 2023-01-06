@@ -1,5 +1,7 @@
-//Footer
-@mixin make-grid-footer() {
+@charset "utf-8";
+
+//Main
+@mixin make-grid-main() {
   width: 100%;
   max-width: 100%;
   grid-column: 1 / 2;
@@ -14,12 +16,12 @@
     grid-column: 1 / 7;
   }
   @include media-min(lg) {
-    grid-column: 1 / 9;
+    grid-column: 3 / 9;
   }
   @include media-min(xl) {
-    grid-column: 1 / 11;
+    grid-column: 4 / 11;
   }
   @include media-min(xxl) {
-    grid-column: 1 / 13;
+    grid-column: 4 / 13;
   }
 }
