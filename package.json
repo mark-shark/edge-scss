@@ -1,6 +1,6 @@
 {
-  "name": "@edge-code/edge-scss",
-  "version": "0.1.3",
+  "name": "edge-scss",
+  "version": "0.1.4-alpha2",
   "description": "SCSS Dynamic @mixin library for developing responsive.",
   "keywords": [
     "scss",
@@ -28,5 +28,6 @@
   "bugs": {
     "url": "https://github.com/mark-shark/edge-scss/issues"
   },
-  "homepage": "https://github.com/mark-shark/edge-scss#readme"
+  "homepage": "https://github.com/mark-shark/edge-scss#readme",
+  "devDependencies": {}
 }
