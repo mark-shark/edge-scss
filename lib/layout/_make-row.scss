@@ -1,0 +1,23 @@
+//  Row Display flex
+@mixin make-row($gutter: $grid-gutter-width) {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+
+  margin-top: 0;
+  margin-right: calc(-.5 * #{$grid-gutter-width});
+  margin-left: calc(-.5 * #{$grid-gutter-width});
+}
+
+// Row columns
+//
+// Specify on a parent element(e.g., .row) to force immediate children into NN
+// number of columns. Supports wrapping to new lines, but does not do a Masonry
+// style grid.
+@mixin make-row-cols($count) {
+  > * {
+    flex: 0 0 auto;
+    width: divide(100%, $count);
+  }
+}

@@ -23,9 +23,15 @@
 @import "lib/components/make-buttons";
 
 //  Layout Mixins libs
-@import "lib/layout/make-grid";
-@import "lib/layout/make-grid-column";
 @import "lib/layout/make-column";
+@import "lib/layout/make-row";
+@import "lib/layout/make-gridcss";
+@import "lib/layout/make-grid-ready";
+@import "lib/layout/make-grid-column";
+@import "lib/layout/make-grid-header";
+@import "lib/layout/make-grid-aside";
+@import "lib/layout/make-grid-main";
+@import "lib/layout/make-grid-footer";
 @import "lib/layout/make-container";
 
 //  Make Mixin lib

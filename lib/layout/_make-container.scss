@@ -1,19 +1,16 @@
-
-@mixin make-container($size: false, $width: $container-max-widths, $gutter: $container-padding-x) {
-  --#{$prefix}gutter-x: #{$gutter};
-  --#{$prefix}gutter-y: 0;
-
+//  Container
+@mixin make-container($size: false, $width: $container-max-widths) {
   @if $size {
     width: 100%;
     max-width: map-get($width, $size);
     margin: 0 auto;
-    padding-right: calc(var(--#{$prefix}gutter-x) * .5); // stylelint-disable-line function-disallowed-list
-    padding-left: calc(var(--#{$prefix}gutter-x) * .5); // stylelint-disable-line function-disallowed-list
+    padding-right: calc(#{$container-padding-x} * .5);
+    padding-left: calc(#{$container-padding-x} * .5);
   } @else {
     width: 100%;
     max-width: 1320px;
     margin: 0 auto;
-    padding-right: calc(var(--#{$prefix}gutter-x) * .5); // stylelint-disable-line function-disallowed-list
-    padding-left: calc(var(--#{$prefix}gutter-x) * .5); // stylelint-disable-line function-disallowed-list
+    padding-right: calc(#{$container-padding-x} * .5);
+    padding-left: calc(#{$container-padding-x} * .5);
   }
 }

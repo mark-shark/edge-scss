@@ -1,0 +1,29 @@
+//Display grid
+@mixin make-grid-ready($col-gap: false, $row-gap: false) {
+  width: 100%;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 100%));
+  column-gap: calc(#{$col-gap} * .5);
+  row-gap: calc(#{$row-gap} * .5);
+
+  @include media-min(sm) {
+    grid-template-columns: repeat(4, minmax(0, 100%));
+  }
+  @include media-min(md) {
+    grid-template-columns: repeat(6, minmax(0, 100%));
+    column-gap: calc(#{$col-gap} * 1);
+    row-gap: calc(#{$row-gap} * 1);
+  }
+  @include media-min(lg) {
+    grid-template-columns: repeat(8, minmax(0, 100%));
+    column-gap: calc(#{$col-gap} * 1.5);
+    row-gap: calc(#{$row-gap} * 1.5);
+  }
+  @include media-min(xl) {
+    grid-template-columns: repeat(10, minmax(0, 100%));
+  }
+  @include media-min(xxl) {
+    grid-template-columns: repeat(12, minmax(0, 100%));
+  }
+}
