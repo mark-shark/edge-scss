@@ -1,109 +1,71 @@
+// Framework grid generation
+//
+// Used only by Bootstrap to generate the correct number of grid classes given
+// any value of `$grid-columns`.
 
-//Header
-@mixin make-grid-header() {
-  width: 100%;
-  max-width: 100%;
-  grid-column: 1 / 2;
+@mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+  @each $breakpoint in map-keys($breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $breakpoints);
 
-  @include media-min(xs) {
-    grid-column: 1 / 3;
-  }
-  @include media-min(sm) {
-    grid-column: 1 / 5;
-  }
-  @include media-min(md) {
-    grid-column: 1 / 7;
-  }
-  @include media-min(lg) {
-    grid-column: 1 / 9;
-  }
-  @include media-min(xl) {
-    grid-column: 1 / 11;
-  }
-  @include media-min(xxl) {
-    grid-column: 1 / 13;
+    @include media-min($breakpoint, $breakpoints) {
+      // Provide basic `.col-{bp}` classes for equal-width flexbox columns
+      .col#{$infix} {
+        flex: 1 0 0%; // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+      }
+
+      .row-cols#{$infix}-auto > * {
+        @include make-col-auto();
+      }
+
+      @if $grid-row-columns > 0 {
+        @for $i from 1 through $grid-row-columns {
+          .row-cols#{$infix}-#{$i} {
+            @include make-row-cols($i);
+          }
+        }
+      }
+
+      .col#{$infix}-auto {
+        @include make-col-auto();
+      }
+
+      @if $columns > 0 {
+        @for $i from 1 through $columns {
+          .col#{$infix}-#{$i} {
+            @include make-col($i, $columns);
+          }
+        }
+
+        // `$columns - 1` because offsetting by the width of an entire row isn't possible
+        @for $i from 0 through ($columns - 1) {
+          @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-0
+            .offset#{$infix}-#{$i} {
+              @include make-col-offset($i, $columns);
+            }
+          }
+        }
+      }
+
+      // Gutters
+      //
+      // Make use of `.g-*`, `.gx-*` or `.gy-*` utilities to change spacing between the columns.
+      @each $key, $value in $gutters {
+        .g#{$infix}-#{$key},
+        .gx#{$infix}-#{$key} {
+          --#{$prefix}gutter-x: #{$value};
+        }
+
+        .g#{$infix}-#{$key},
+        .gy#{$infix}-#{$key} {
+          --#{$prefix}gutter-y: #{$value};
+        }
+      }
+    }
   }
 }
 
-//Footer
-@mixin make-grid-footer() {
+//Column
+@mixin make-grid-col() {
   width: 100%;
   max-width: 100%;
-  grid-column: 1 / 2;
-
-  @include media-min(xs) {
-    grid-column: 1 / 3;
-  }
-  @include media-min(sm) {
-    grid-column: 1 / 5;
-  }
-  @include media-min(md) {
-    grid-column: 1 / 7;
-  }
-  @include media-min(lg) {
-    grid-column: 1 / 9;
-  }
-  @include media-min(xl) {
-    grid-column: 1 / 11;
-  }
-  @include media-min(xxl) {
-    grid-column: 1 / 13;
-  }
-}
-
-//Main
-@mixin make-grid-main() {
-  width: 100%;
-  max-width: 100%;
-  grid-column: 1 / 2;
-
-  @include media-min(xs) {
-    grid-column: 1 / 3;
-  }
-  @include media-min(sm) {
-    grid-column: 1 / 5;
-  }
-  @include media-min(md) {
-    grid-column: 1 / 7;
-  }
-  @include media-min(lg) {
-    grid-column: 3 / 9;
-  }
-  @include media-min(xl) {
-    grid-column: 4 / 11;
-  }
-  @include media-min(xxl) {
-    grid-column: 4 / 13;
-  }
-}
-
-//Aside
-@mixin make-grid-aside($gap1: false, $gap2: false) {
-  width: 100%;
-  max-width: 100%;
-  grid-column: 1 / 2;
-  display: grid;
-  column-gap: ($gap1 / 2);
-  row-gap: ($gap2 / 2);
-
-  @include media-min(xs) {
-    grid-column: 1 / 3;
-  }
-  @include media-min(sm) {
-    grid-column: 1 / 5;
-  }
-  @include media-min(md) {
-    grid-column: 1 / 7;
-  }
-  @include media-min(lg) {
-    grid-column: 1 / 3;
-    column-gap: $gap1;
-    row-gap: $gap2;
-  }
-  @include media-min(xl) {
-    grid-column: 1 / 4;
-  }
-  @include media-min(xxl) {
-    grid-column: 1 / 4;
-  }
 }

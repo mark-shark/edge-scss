@@ -18,10 +18,11 @@ Experiences with SCSS, SASS, NPM.
 
 Use [NPM](https://www.npmjs.com/) and [@SASS](https://sass-lang.com/) 
 
-1.  `npm install @edge-code/edge-scss`
+    npm install @edge-code/edge-scss
 
 And put the @import url in the project root style-file.scss
-2.  `@import "node_modules/@edge-code/edge-scss/edge-core";`
+
+    @import "node_modules/@edge-code/edge-scss/edge-core";
 
 ---
 ## Usage and Documentation
@@ -258,7 +259,7 @@ How use [@mixin and @include](https://sass-lang.com/documentation/at-rules/mixin
 ### Breakpoints in GRID default
 | Breakpoints | Columns    |
 |-------------|------------|
-| 0           | 1 column   |
+| 0           | 2 column   |
 | XS          | 2 columns  |
 | SM          | 4 columns  |
 | MD          | 6 columns  |

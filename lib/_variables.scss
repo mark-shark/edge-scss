@@ -2,29 +2,39 @@ $edge-prefix: edge- !default;
 $prefix: $edge-prefix !default;
 
 //Font size
-$base-font-size:                   16px !default;   // 1rem;
-$base-line-height:                 ($base-font-size + 6) !default;  // 1em;
+$base-font-size:                   16px !default;   // 1rem
+$base-line-height:                 ($base-font-size + 6) !default;
 
 //Aspect 16:9
 
 //Media query
 $width-xs: 321px !default; //Phone
 $xs-min: $width-xs;
+$xs-man: ($width-xs - .2);
 
 $width-sm: 576px !default; //Phone
 $sm-min: $width-sm;
+$sm-max: ($width-sm - .2);
 
 $width-md: 768px !default; //Tablet, iPad-mini
 $md-min: $width-md;
+$md-max: ($width-md - .2);
 
 $width-lg: 992px !default; //Tablet, iPad-pro
 $lg-min: $width-lg;
+$lg-max: ($width-lg - .2);
 
 $width-xl: 1200px !default; //Desktop
 $xl-min: $width-xl;
+$xl-max: ($width-xl - .2);
 
-$width-xxl: 1440px !default; //Desktop
+$width-xxl: 1400px !default; //Desktop
 $xxl-min: $width-xxl;
+$xxl-max: ($width-xxl - .2);
+
+$width-xxxl: 1680px !default; //Desktop 2K EDGE-Dev
+$xxxl-min: $width-xxxl;
+$xxxl-max: ($width-xxxl - .2);
 
 //Break point maps
 $breakpoints: (
@@ -34,4 +44,5 @@ $breakpoints: (
   "lg":  $lg-min,
   "xl":  $xl-min,
   "xxl": $xxl-min,
+  "xxxl": $xxxl-min,
 ) !default;

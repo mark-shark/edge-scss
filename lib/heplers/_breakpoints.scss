@@ -75,7 +75,7 @@
   $min: breakpoint-min($name, $breakpoints);
 
   @if $min {
-    @media (min-width: $min) {
+    @media (min-width: #{$min}) {
       @content;
     }
   } @else {
@@ -87,7 +87,7 @@
 @mixin media-max($name, $breakpoints: $grid-breakpoints) {
   $max: breakpoint-max($name, $breakpoints);
   @if $max {
-    @media (max-width: $max) {
+    @media (max-width: #{$max}) {
       @content;
     }
   } @else {
@@ -101,7 +101,7 @@
   $max: breakpoint-max($break-max, $breakpoints);
 
   @if $min != null and $max != null {
-    @media (min-width: $min) and (max-width: $max) {
+    @media (min-width: #{$min}) and (max-width: #{$max}) {
       @content;
     }
   } @else if $max == null {
