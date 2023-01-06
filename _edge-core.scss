@@ -4,7 +4,10 @@
 @import "lib/maps";
 
 //  Vendor libs
-@import "vendor/bootstrap";
+@import "lib/vendor/rfs/rfs";
+@import "lib/vendor/bootstrap/functions";
+@import "lib/vendor/bootstrap/variables";
+@import "lib/vendor/bootstrap/maps";
 
 //  Helpers Mixin libs
 @import "lib/heplers/breakpoints";
