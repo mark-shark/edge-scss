@@ -24,7 +24,7 @@ Use [NPM](https://www.npmjs.com/) and [@SASS](https://sass-lang.com/)
 
 And put the @import url in the project root style-file.scss
 
-    @import "node_modules/@edge-code/edge-scss/edge-core";
+    @import "node_modules/edge-scss/edge-core";
 
 ---
 ### [Usage and Documentation](https://github.com/mark-shark/edge-scss/blob/main/Documentation.md)
