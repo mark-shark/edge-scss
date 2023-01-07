@@ -20,7 +20,7 @@ Experiences with SCSS, SASS, NPM.
 
 Use [NPM](https://www.npmjs.com/) and [@SASS](https://sass-lang.com/) 
 
-    npm i edge-scss@0.1.4-alpha4
+    npm i edge-scss@0.1.5-alpha2
 
 And put the @import url in the project root style-file.scss
 
