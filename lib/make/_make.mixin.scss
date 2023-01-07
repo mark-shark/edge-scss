@@ -8,25 +8,6 @@
       }
     }
   } @else if $name-class == false {
-    @error 'Error';
-    body {
-      &:before {
-        z-index: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        content: 'Edge Error';
-        font-size: 30px;
-        font-weight: bold;
-        color: white;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        width: 100vw !important;
-        height: 200px !important;
-        background-color: red;
-      }
-    }
+    @error 'ERROR';
   }
 }

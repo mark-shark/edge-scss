@@ -9,7 +9,7 @@
 //
 // Keep images from scaling beyond the width of their parents.
 
-@mixin make-img-fluid {
+@mixin make-img-fluid() {
   // Part 1: Set a maximum relative to the parent
   max-width: 100%;
   // Part 2: Override the height to auto, otherwise images will be stretched
@@ -17,7 +17,7 @@
   height: auto;
 }
 
-@mixin make-img-thumbnail {
+@mixin make-img-thumbnail() {
   padding: $thumbnail-padding;
   background-color: $thumbnail-bg;
   border: $thumbnail-border-width solid $thumbnail-border-color;
@@ -25,24 +25,24 @@
   @include box-shadow($thumbnail-box-shadow);
 
   // Keep them at most 100% wide
-  @include img-fluid();
+  @include make-img-fluid();
 }
 
 //
 // Figures
 //
 
-@mixin make-figure {
+@mixin make-figure() {
   // Ensures the caption's text aligns with the image.
   display: inline-block;
 }
 
-@mixin make-figure-img {
+@mixin make-figure-img() {
   margin-bottom: $spacer * .5;
   line-height: 1;
 }
 
-@mixin make-figure-caption {
+@mixin make-figure-caption() {
   @include font-size($figure-caption-font-size);
   color: $figure-caption-color;
 }

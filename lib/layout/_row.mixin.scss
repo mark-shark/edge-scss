@@ -24,8 +24,6 @@
       width: divide(100%, $count);
     }
   } @else {
-    > * {
-      @error "ERROR must insert number of width columns!!! => (1 - 12)";
-    }
+    @error "ERROR must insert number of width columns!!! => (1 - 12)";
   }
 }

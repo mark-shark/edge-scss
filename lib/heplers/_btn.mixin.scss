@@ -1,0 +1,142 @@
+@charset "utf-8";
+@use "sass:meta";
+
+//  Btn
+@mixin btn($theme-variant: false) {
+  @if $theme-variant == 'primary' {
+    @include btn--primary;
+  } @else if $theme-variant == 'secondary' {
+    @include btn--secondary;
+  } @else if $theme-variant == 'success' {
+    @include btn--success;
+  } @else if $theme-variant == 'info' {
+    @include btn--info;
+  } @else if $theme-variant == 'danger' {
+    @include btn--danger;
+  } @else if $theme-variant == 'light' {
+    @include btn--light;
+  } @else if $theme-variant == 'dark' {
+    @include btn--dark;
+  } @else {
+    @error 'ERROR btn() has not value! => (primary, secondary, success, info, danger, light, dark)';
+  }
+}
+
+//  Primary
+@mixin btn--primary() {
+  background-color: $primary;
+  border-color: $primary;
+  color: $white;
+
+  @include make-force-state(hover){
+    background-color: mix(white, $primary, 20%);
+    color: $white;
+    text-decoration: none;
+  }
+  @include make-force-state(visited) {
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+//  Secondary
+@mixin btn--secondary() {
+  background-color: $secondary;
+  border-color: $secondary;
+  color: $white;
+
+  @include make-force-state(hover){
+    background-color: mix(white, $secondary, 20%);
+    color: $white;
+    text-decoration: none;
+  }
+  @include make-force-state(visited) {
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+//  Success
+@mixin btn--success() {
+  background-color: $success;
+  border-color: $success;
+  color: $white;
+
+  @include make-force-state(hover){
+    background-color: mix(white, $success, 20%);
+    color: $white;
+    text-decoration: none;
+  }
+  @include make-force-state(visited) {
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+//  Info
+@mixin btn--info() {
+  background-color: $info;
+  border-color: $info;
+  color: $white;
+
+  @include make-force-state(hover){
+    background-color: mix(white, $info, 20%);
+    color: $white;
+    text-decoration: none;
+  }
+  @include make-force-state(visited) {
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+//  Danger
+@mixin btn--danger() {
+  background-color: $danger;
+  border-color: $danger;
+  color: $white;
+
+  @include make-force-state(hover){
+    background-color: mix(white, $danger, 20%);
+    color: $white;
+    text-decoration: none;
+  }
+  @include make-force-state(visited) {
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+//  Light
+@mixin btn--light() {
+  background-color: $light;
+  border-color: $light;
+  color: $dark;
+
+  @include make-force-state(hover){
+    background-color: mix($dark, $light, 20%);
+    color: $dark;
+    text-decoration: none;
+  }
+  @include make-force-state(visited) {
+    color: $dark;
+    text-decoration: none;
+  }
+}
+
+//  Dark
+@mixin btn--dark() {
+  background-color: $dark;
+  border-color: $dark;
+  color: $light;
+
+  @include make-force-state(hover){
+    background-color: mix($dark, $light, 80%);
+    color: $light;
+    text-decoration: none;
+  }
+  @include make-force-state(visited) {
+    color: $light;
+    text-decoration: none;
+  }
+}

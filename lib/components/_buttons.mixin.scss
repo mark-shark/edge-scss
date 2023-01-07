@@ -1,69 +1,26 @@
 @charset "utf-8";
 @use "sass:meta";
 
-//Btn
-//
-@mixin btn--primary() {
-  background-color: $primary;
-  border-color: $primary;
-  color: $white;
-}
-
-@mixin btn--secondary() {
-  background-color: $secondary;
-  border-color: $secondary;
-  color: $white;
-}
-
-@mixin btn--success() {
-  background-color: $success;
-  border-color: $success;
-  color: $white;
-}
-
-@mixin btn--info() {
-  background-color: $info;
-  border-color: $info;
-  color: $white;
-}
-
-@mixin btn--danger() {
-  background-color: $danger;
-  border-color: $danger;
-  color: $white;
-}
-
-@mixin btn--light() {
-  background-color: $light;
-  border-color: $light;
-  color: $dark;
-}
-
-@mixin btn--dark() {
-  background-color: $dark;
-  border-color: $dark;
-  color: $white;
-}
-
 //Standard
-@mixin make-btn-ready($gutter: $grid-gutter-width) {
-  --#{$prefix}gutter-x: 0;
-  --#{$prefix}gutter-y: #{$gutter};
-
+@mixin make-btn-ready($border-w: false, $gutter: $grid-gutter-width) {
   width: fit-content;
   width: -moz-fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  appearance: auto;
+  -webkit-appearance: menulist;
+  -moz-appearance: menulist;
+  border-width: if($border-w, $border-w, null);
   cursor: pointer;
 
-  height: calc(1.5 * var(--#{$prefix}gutter-y));
+  height: calc(1.5 * #{$gutter});
   @include media-min(md) {
-    height: calc(1.667 * var(--#{$prefix}gutter-y));
+    height: calc(1.667 * #{$gutter});
   }
   @include media-min(lg) {
-    height: calc(2 * var(--#{$prefix}gutter-y));
+    height: calc(2 * #{$gutter});
   }
 }
 
@@ -73,46 +30,30 @@
   $color: false,
   $padding: false,
   $width: false,
+  $border-w: false
 ) {
-  @include make-btn-ready();
+  @include make-btn-ready($border-w);
 
-  @if $bg-btn != false or $bg-btn != null {
-    border-radius: $radius;
-    color: $color;
-    background-color: $bg-btn;
-    padding: 0 $padding;
-    width: $width;
+  border-radius: if($radius, $radius, null);
+  color: if($color, $color, null);
+  background-color: if($bg-btn, $bg-btn, null);
+  padding: 0 if($padding, $padding, null);
+  width: if($width, $width, null);
+  box-shadow: 0 3px 5px 1px #0003,
+              0 6px 10px #00000024,
+              0 1px 18px #0000001f;
 
-    @include make-force-state(active){
-      color: $color;
-      text-decoration: none;
-    }
-    @include make-force-state(hover){
-      background-color: mix(white, $bg-btn, 20%);
-      color: $color;
-      text-decoration: none;
-    }
-    @include make-force-state(visited) {
-      color: $color;
-      text-decoration: none;
-    }
-  } @else {
-    border-radius: $radius;
-    color: $color;
-    padding: 0 $padding;
-    width: $width;
-
-    @include make-force-state(active){
-      color: $color;
-      text-decoration: none;
-    }
-    @include make-force-state(hover){
-      color: $color;
-      text-decoration: none;
-    }
-    @include make-force-state(visited) {
-      color: $color;
-      text-decoration: none;
-    }
+  @include make-force-state(active){
+    color: if($color, $color, null);
+    text-decoration: none;
+  }
+  @include make-force-state(hover){
+    background-color: if($bg-btn, mix(white, $bg-btn, 20%), null);
+    color: if($color, $color, null);
+    text-decoration: none;
+  }
+  @include make-force-state(visited) {
+    color: if($color, $color, null);
+    text-decoration: none;
   }
 }

@@ -1,36 +1,38 @@
 @charset "utf-8";
 
 //Force-state @mixin
-@mixin make-force-state($name-state) {
+@mixin make-force-state($name-state: false) {
   $val: get-force-state($name-state);
 
-  @if $val != null and $val == 'active' {
+  @if($val not false and $val == 'active') {
     &:active {
       @content
     }
-  } @else if($val != null and $val == 'hover') {
+  } @else if($val not false and $val == 'hover') {
     &:hover, &:not([disabled]):hover {
       @content
     }
-  } @else if($val != null and $val == 'visited') {
+  } @else if($val not false and $val == 'visited') {
     &:visited {
       @content
     }
-  } @else if($val != null and $val == 'focus') {
+  } @else if($val not false and $val == 'focus') {
     &:focus {
       @content
     }
-  } @else if($val != null and $val == 'focus-visible') {
+  } @else if($val not false and $val == 'focus-visible') {
     &:focus-visible {
       @content
     }
-  } @else if($val != null and $val == 'focus-within') {
+  } @else if($val not false and $val == 'focus-within') {
     &:focus-within {
       @content
     }
-  } @else if($val != null and $val == 'targer') {
+  } @else if($val not false and $val == 'targer') {
     &:target {
       @content
     }
+  } @else {
+    @error 'ERROR make-force-state() has not value! => (active, hover, visited, focus, focus-visible, focus-within, targer)';
   }
 }
