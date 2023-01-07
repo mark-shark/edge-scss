@@ -6,21 +6,21 @@
   max-width: 100%;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 100%));
-  column-gap: calc(#{$col-gap} * .5);
-  row-gap: calc(#{$row-gap} * .5);
+  column-gap: if($col-gap, calc(#{$col-gap} * .5), null);
+  row-gap: if($row-gap, calc(#{$row-gap} * .5), null);
 
   @include media-min(sm) {
     grid-template-columns: repeat(4, minmax(0, 100%));
   }
   @include media-min(md) {
     grid-template-columns: repeat(6, minmax(0, 100%));
-    column-gap: calc(#{$col-gap} * 1);
-    row-gap: calc(#{$row-gap} * 1);
+    column-gap: if($col-gap, calc(#{$col-gap} * 1), null);
+    row-gap: if($row-gap, calc(#{$row-gap} * 1), null);
   }
   @include media-min(lg) {
     grid-template-columns: repeat(8, minmax(0, 100%));
-    column-gap: calc(#{$col-gap} * 1.5);
-    row-gap: calc(#{$row-gap} * 1.5);
+    column-gap: if($col-gap, calc(#{$col-gap} * 1.5), null);
+    row-gap: if($row-gap, calc(#{$row-gap} * 1.5), null);
   }
   @include media-min(xl) {
     grid-template-columns: repeat(10, minmax(0, 100%));

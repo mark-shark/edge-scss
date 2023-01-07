@@ -1,0 +1,34 @@
+@charset "utf-8";
+
+@mixin make-overlay($color: false, $opacity: false, $blur: false) {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: if($color and $opacity, rgba($color, $opacity), null);
+  backdrop-filter: if($blur, blur(#{$blur}), null);
+  z-index: 2;
+  cursor: pointer;
+}
+
+@mixin make-modal-content($width: false) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  width: if($width, $width, null);
+}
+
+@mixin make-close-btn() {
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    cursor: pointer;
+  }
+}

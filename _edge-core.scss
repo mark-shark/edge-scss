@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+$include-column-box-sizing: true !default;
+
 //  Function and Variables
 @import "lib/function";
 @import "lib/variables";
@@ -13,10 +15,14 @@
 @import "lib/vendor/bootstrap/maps";
 @import "lib/vendor/bootstrap/utilities";
 
+@import "lib/vendor/bootstrap/mixins/box-shadow";
+@import "lib/vendor/bootstrap/mixins/border-radius";
+
 //  Helpers Mixin libs
 @import "lib/heplers/breakpoints.mixin";
 @import "lib/heplers/force-state.mixin";
 @import "lib/heplers/color-scheme.mixin";
+@import "lib/heplers/btn.mixin";
 
 //  Components Mixins libs
 @import "lib/components/host.mixin";
@@ -29,6 +35,7 @@
 @import "lib/components/image.mixin";
 @import "lib/components/lists.mixin";
 @import "lib/components/buttons.mixin";
+@import "lib/components/modal.mixin";
 
 //  Layout Mixins libs
 @import "lib/layout/column.mixin";
