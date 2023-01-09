@@ -46,3 +46,27 @@
   @include font-size($figure-caption-font-size);
   color: $figure-caption-color;
 }
+
+@mixin make-img-aspect($aspect: false) {
+  background: linear-gradient(0deg,
+    $gray-200, $gray-600, $gray-200, $gray-600, $gray-200
+  );
+  background-size: 400% 400%;
+  animation: gradient 10s linear infinite running;
+  aspect-ratio: if($aspect, $aspect, null);
+  @keyframes gradient {
+    100% {
+      background-position: 400% 0;
+    }
+    0% {
+      background-position: 0 400%;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    @include make-figure-img;
+  }
+}

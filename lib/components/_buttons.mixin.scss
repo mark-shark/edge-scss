@@ -1,59 +1,80 @@
 @charset "utf-8";
+@use "sass:string";
 @use "sass:meta";
+@use "sass:list";
 
 //Standard
-@mixin make-btn-ready($border-w: false, $gutter: $grid-gutter-width) {
-  width: fit-content;
-  width: -moz-fit-content;
+@mixin make-btn-ready($width: false, $height: false, $border: false, $gutter: $grid-gutter-width) {
+  width: if($width, $width, fit-content);
+  width: if($width, null, -moz-fit-content);
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
   appearance: auto;
-  -webkit-appearance: menulist;
-  -moz-appearance: menulist;
-  border-width: if($border-w, $border-w, null);
+  border: if($border, $border !important, null);
+  border-width: if($border, null, 0);
   cursor: pointer;
 
-  height: calc(1.5 * #{$gutter});
+  height: if($height, calc(1 * #{$height}), calc(1.5 * #{$gutter}));
   @include media-min(md) {
-    height: calc(1.667 * #{$gutter});
+    height: if($height, calc(1.5 * #{$height}), calc(1.667 * #{$gutter}));
   }
   @include media-min(lg) {
-    height: calc(2 * #{$gutter});
+    height: if($height, calc(2 * #{$height}), calc(2 * #{$gutter}));
+  }
+
+  &:disabled {
+    cursor: none;
   }
 }
 
+$valid: primary, secondary, success, info, danger, light, dark;
+
 @mixin make-btn(
-  $radius: false,
-  $bg-btn: false,
-  $color: false,
-  $padding: false,
   $width: false,
-  $border-w: false
+  $height: false,
+  $padding: false,
+  $radius: false,
+  $border: false,
+  $background: false,
+  $color: false
 ) {
-  @include make-btn-ready($border-w);
-
+  /*default*/
+  @include make-btn-ready($width, $height, $border);
   border-radius: if($radius, $radius, null);
-  color: if($color, $color, null);
-  background-color: if($bg-btn, $bg-btn, null);
-  padding: 0 if($padding, $padding, null);
-  width: if($width, $width, null);
-  box-shadow: 0 3px 5px 1px #0003,
-              0 6px 10px #00000024,
-              0 1px 18px #0000001f;
+  padding: if($padding, 0, null) if($padding, $padding, 1rem);
+  border: if($background == false and $color == false and $border == false
+          or $background == false and $color != false and $border == false,
+          1px solid red, null
+            );
+  //
+  //
+  @if (not list.index($valid, $background) and $color) {
+    color: $color;
+    background-color: if($background, $background, null);
 
-  @include make-force-state(active){
-    color: if($color, $color, null);
-    text-decoration: none;
-  }
-  @include make-force-state(hover){
-    background-color: if($bg-btn, mix(white, $bg-btn, 20%), null);
-    color: if($color, $color, null);
-    text-decoration: none;
-  }
-  @include make-force-state(visited) {
-    color: if($color, $color, null);
-    text-decoration: none;
+    &:hover, &:visited, &:active {
+      color: if($color, $color, null);
+      text-decoration: none;
+    }
+    &:hover {
+      background-color: if($background, mix(white, $background, 20%), null);
+    }
+    //
+    //
+  } @else if(list.index($valid, $background) and not $color) {
+    box-shadow: 0 3px 5px 1px #0003, 0 6px 10px #00000024, 0 1px 18px #0000001f;
+    @include btn($background);
+    //
+    //
+  } @else if ($background and not $color) {
+    @error 'ERROR:btn.color, have to enter variable "$color: ....,"!!!'
+    //
+    //
+  } @else if($color and list.index($valid, $background)) {
+    @error 'ERROR:btn.default-variant, must delete variable "$color: ...., or change defalt variant to set own background-color"!!!'
+    //
+    //
   }
 }

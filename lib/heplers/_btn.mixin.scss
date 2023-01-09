@@ -2,20 +2,20 @@
 @use "sass:meta";
 
 //  Btn
-@mixin btn($theme-variant: false) {
-  @if $theme-variant == 'primary' {
+@mixin btn($background: false) {
+  @if $background == 'primary' {
     @include btn--primary;
-  } @else if $theme-variant == 'secondary' {
+  } @else if $background == 'secondary' {
     @include btn--secondary;
-  } @else if $theme-variant == 'success' {
+  } @else if $background == 'success' {
     @include btn--success;
-  } @else if $theme-variant == 'info' {
+  } @else if $background == 'info' {
     @include btn--info;
-  } @else if $theme-variant == 'danger' {
+  } @else if $background == 'danger' {
     @include btn--danger;
-  } @else if $theme-variant == 'light' {
+  } @else if $background == 'light' {
     @include btn--light;
-  } @else if $theme-variant == 'dark' {
+  } @else if $background == 'dark' {
     @include btn--dark;
   } @else {
     @error 'ERROR btn() has not value! => (primary, secondary, success, info, danger, light, dark)';
@@ -28,14 +28,12 @@
   border-color: $primary;
   color: $white;
 
-  @include make-force-state(hover){
-    background-color: mix(white, $primary, 20%);
+  &:hover, &:visited {
     color: $white;
     text-decoration: none;
   }
-  @include make-force-state(visited) {
-    color: $white;
-    text-decoration: none;
+  &:hover {
+    background-color: mix(white, $primary, 20%);
   }
 }
 
@@ -45,14 +43,12 @@
   border-color: $secondary;
   color: $white;
 
-  @include make-force-state(hover){
-    background-color: mix(white, $secondary, 20%);
+  &:hover, &:visited {
     color: $white;
     text-decoration: none;
   }
-  @include make-force-state(visited) {
-    color: $white;
-    text-decoration: none;
+  &:hover {
+    background-color: mix(white, $secondary, 20%);
   }
 }
 
@@ -62,14 +58,12 @@
   border-color: $success;
   color: $white;
 
-  @include make-force-state(hover){
-    background-color: mix(white, $success, 20%);
+  &:hover, &:visited {
     color: $white;
     text-decoration: none;
   }
-  @include make-force-state(visited) {
-    color: $white;
-    text-decoration: none;
+  &:hover {
+    background-color: mix(white, $success, 20%);
   }
 }
 
@@ -79,14 +73,12 @@
   border-color: $info;
   color: $white;
 
-  @include make-force-state(hover){
-    background-color: mix(white, $info, 20%);
+  &:hover, &:visited {
     color: $white;
     text-decoration: none;
   }
-  @include make-force-state(visited) {
-    color: $white;
-    text-decoration: none;
+  &:hover {
+    background-color: mix(white, $info, 20%);
   }
 }
 
@@ -96,14 +88,12 @@
   border-color: $danger;
   color: $white;
 
-  @include make-force-state(hover){
-    background-color: mix(white, $danger, 20%);
+  &:hover, &:visited {
     color: $white;
     text-decoration: none;
   }
-  @include make-force-state(visited) {
-    color: $white;
-    text-decoration: none;
+  &:hover {
+    background-color: mix(white, $danger, 20%);
   }
 }
 
@@ -113,14 +103,12 @@
   border-color: $light;
   color: $dark;
 
-  @include make-force-state(hover){
-    background-color: mix($dark, $light, 20%);
+  &:hover, &:visited {
     color: $dark;
     text-decoration: none;
   }
-  @include make-force-state(visited) {
-    color: $dark;
-    text-decoration: none;
+  &:hover {
+    background-color: mix($dark, $light, 20%);
   }
 }
 
@@ -130,13 +118,11 @@
   border-color: $dark;
   color: $light;
 
-  @include make-force-state(hover){
-    background-color: mix($dark, $light, 80%);
+  &:hover, &:visited {
     color: $light;
     text-decoration: none;
   }
-  @include make-force-state(visited) {
-    color: $light;
-    text-decoration: none;
+  &:hover {
+    background-color: mix($dark, $light, 80%);
   }
 }

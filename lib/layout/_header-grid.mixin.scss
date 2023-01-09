@@ -19,9 +19,6 @@
     grid-column: 1 / 9;
   }
   @include media-min(xl) {
-    grid-column: 1 / 11;
-  }
-  @include media-min(xxl) {
     grid-column: 1 / 13;
   }
 }
