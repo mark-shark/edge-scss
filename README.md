@@ -5,9 +5,9 @@
 </p>
 
 <h2 align="center">EDGE-scss</h2>
+<h3 align="center">SCSS Dynamic @mixin library for developing responsive.</h3>
 
 ---
-### SCSS Dynamic @mixin library for developing responsive.
 #### EDGE is simple SCSS @mixin library originating from [Bootstrap](https://getbootstrap.com/) (v5.0).
 - Primarily created for Angular 7 and newer. 
 - To achieve as little as possible in CSS compilation.
