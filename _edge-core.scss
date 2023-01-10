@@ -32,6 +32,7 @@ $include-column-box-sizing: true !default;
 @import "lib/components/box-sizing.mixin";
 @import "lib/components/preflights.mixin";
 @import "lib/components/base.mixin";
+@import "lib/components/icon.mixin";
 @import "lib/components/image.mixin";
 @import "lib/components/lists.mixin";
 @import "lib/components/buttons.mixin";
@@ -50,4 +51,4 @@ $include-column-box-sizing: true !default;
 @import "lib/layout/container.mixin";
 
 //  Make Mixin lib
-@import "lib/make/make.mixin";
+@import "lib/give/give.mixin";

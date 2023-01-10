@@ -24,11 +24,34 @@
   width: if($width, $width, null);
 }
 
-@mixin make-close-btn() {
+@mixin make-btn-close($width: false, $color: false) {
+  position: absolute;
+  right: if($width, $width, 32px);
+  top: if($width, $width, 32px);
+  width: if($width, $width, 32px);
+  height: if($width, $width, 32px);
+  opacity: 0.3;
 
+  &:hover {
+    opacity: 1;
+  }
   &:hover,
   &:focus {
     text-decoration: none;
     cursor: pointer;
+  }
+  &:before, &:after {
+    position: absolute;
+    left: if($width, calc(#{$width} / 2 - 1px), 15px);
+    content: '';
+    height: if($width, calc(#{$width} + 1px), 33px);
+    width: 2px;
+    background-color: if($color, $color, #333);
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
   }
 }

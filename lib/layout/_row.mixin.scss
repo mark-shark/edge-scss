@@ -5,11 +5,11 @@
   width: 100%;
   max-width: 100%;
   display: flex;
-  flex-flow: wrap;
+  flex-flow: row wrap;
 
   margin-top: 0;
-  margin-right: calc(#{$grid-gutter-width} * -.5);
-  margin-left: calc(#{$grid-gutter-width} * -.5);
+  margin-right: auto;
+  margin-left: auto;
 }
 
 // Row columns

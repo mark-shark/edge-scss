@@ -1,10 +1,10 @@
 @charset "utf-8";
 
 //  Container
-@mixin make-container($size: false, $width: $container-max-widths) {
+@mixin make-container($size: false, $width: $container-max-widths, $padding: false) {
   width: 100%;
   max-width: if($size, map-get($width, $size), 1320px);
   margin: 0 auto;
-  padding-right: calc(#{$container-padding-x} * .5);
-  padding-left: calc(#{$container-padding-x} * .5);
+  padding-right: if($padding, $padding, calc(#{$container-padding-x} * .5));
+  padding-left: if($padding, $padding, calc(#{$container-padding-x} * .5));
 }
