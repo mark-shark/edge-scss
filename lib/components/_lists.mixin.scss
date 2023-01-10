@@ -7,3 +7,13 @@
   padding-left: 0;
   list-style: none;
 }
+
+@mixin make-reset-list() {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin make-list-reset() {
+  @include make-reset-list;
+}
