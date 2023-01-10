@@ -4,7 +4,7 @@
   </a>
 </p>
 
-<h3 align="center">EDGE-scss</h3>
+<h2 align="center">EDGE-scss</h2>
 
 ---
 ### SCSS Dynamic @mixin library for developing responsive.
