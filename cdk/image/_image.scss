@@ -1,0 +1,46 @@
+
+
+$thumbnail-padding:                 .25rem !default;
+
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+) !default;
+
+@mixin make-img-fluid() {
+  // Part 1: Set a maximum relative to the parent
+  max-width: 100%;
+  // Part 2: Override the height to auto, otherwise images will be stretched
+  // when setting a width and height attribute on the img element.
+  height: auto;
+}
+
+@mixin make-figure() {
+  // Ensures the caption's text aligns with the image.
+  display: inline-block;
+}
+
+@mixin make-figure-img() {
+  margin-bottom: $spacer * .5;
+  line-height: 1;
+}
+
+@mixin make-img-aspect($aspect: false) {
+  aspect-ratio: if($aspect, $aspect, null);
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    @include make-figure-img;
+  }
+}
+
+@mixin make-img-thumbnail() {
+  @include make-img-fluid();
+}

@@ -1,6 +1,5 @@
-@charset "utf-8";
 
-@mixin make-preflights {
+@mixin preflights {
   hr {
     height: 0; /* 1 */
     color: inherit; /* 2 */

@@ -1,0 +1,44 @@
+@use './breakpoints/breakpoints';
+@use './animate/animate';
+@use './rfs/rfs';
+@use './display/display';
+
+@mixin media-screen-min() {
+  @include breakpoints.media-screen-min();
+}
+
+@mixin media-screen-max() {
+  @include breakpoints.media-screen-max();
+}
+
+@mixin media-min($name) {
+  @include breakpoints.media-min($name) {
+    @content
+  }
+}
+
+@mixin media-max($name) {
+  @include breakpoints.media-max($name) {
+    @content
+  }
+}
+
+@mixin media-between($break-min, $break-max) {
+  @include breakpoints.media-between($break-min, $break-max) {
+    @content
+  }
+}
+
+@mixin display-aspect($aspect) {
+  @include breakpoints.display-aspect($aspect);
+}
+
+@mixin animate-load($height: false) {
+  @include animate.make-animate-load($height);
+}
+
+@mixin display($size) {
+  @include display.make-display($size) {
+    @content
+  }
+}

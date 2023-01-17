@@ -1,0 +1,23 @@
+
+$grid-gutter-width:           1.5rem !default;
+$container-padding-x: $grid-gutter-width !default;
+
+$container-max-widths: (
+  xs    : 320px,
+  sm    : 540px,
+  md    : 720px,
+  lg    : 960px,
+  xl    : 1140px,
+  xxl   : 1320px,
+  huge  : 1600px,
+  fluid : 100%
+) !default;
+
+//  Container
+@mixin make-container($size: false, $width: $container-max-widths) {
+  width: 100%;
+  max-width: if($size, map-get($width, $size), 1320px);
+  margin: 0 auto;
+  padding-right: calc(#{$container-padding-x} * .5);
+  padding-left: calc(#{$container-padding-x} * .5);
+}

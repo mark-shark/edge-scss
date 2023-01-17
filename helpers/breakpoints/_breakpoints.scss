@@ -1,4 +1,28 @@
-@charset "utf-8";
+@use 'sass:map';
+
+$grid-columns:                12 !default;
+
+$grid-system: (
+  Small   : ($grid-columns - 8),
+  Medium  : ($grid-columns - 4),
+  Large   : $grid-columns
+);
+
+$grid-breakpoints: (
+  xs: 321px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+) !default;
+
+$aspect-ratios: (
+  "1x1": 100%,
+  "4x3": calc(3 / 4 * 100%),
+  "16x9": calc(9 / 16 * 100%),
+  "21x9": calc(9 / 21 * 100%)
+) !default;
 
 // Breakpoint viewport sizes and media queries.
 //

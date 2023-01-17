@@ -1,0 +1,23 @@
+
+@mixin make-animate-load($height: false) {
+  min-height: if($height, $height, 2rem);
+  margin: 0 !important;
+  padding: 0 !important;
+  background: linear-gradient(0deg,
+    lightgray, gray, lightgray, gray, lightgray
+  );
+  background-size: 400% 400%;
+  animation: gradient 10s linear infinite running;
+  border-radius: 8px;
+  //box-shadow: 0 3px 5px 1px #0003, 0 6px 10px #00000024, 0 1px 18px #0000001f;
+
+}
+
+@keyframes gradient {
+  100% {
+    background-position: 400% 0;
+  }
+  0% {
+    background-position: 0 400%;
+  }
+}

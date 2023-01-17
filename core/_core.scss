@@ -1,0 +1,32 @@
+@use './body/body';
+@use './preflights/preflights';
+@use './box-sizing/box-sizing';
+@use './clearfix/clearfix';
+@use './html/html';
+
+@mixin core($min-width: false) {
+  @include html.make-html();
+  @include body.body($min-width);
+  @include preflights.preflights();
+  @include box-sizing.box-sizing();
+}
+
+@mixin html() {
+  @include html.make-html();
+}
+
+@mixin body($min-width: false) {
+  @include body.body($min-width);
+}
+
+@mixin preflights() {
+  @include preflights.preflights();
+}
+
+@mixin box-sizing() {
+  @include box-sizing.box-sizing();
+}
+
+@mixin clearfix() {
+  @include clearfix.make-clearfix();
+}

@@ -1,0 +1,35 @@
+@use 'sass:map';
+@use 'sass:string';
+
+$MobilPortrait: '(max-width: 599.98px) and (orientation: portrait)';
+$TabletPortrait: '(min-width: 600px) and (max-width: 839.98px) and (orientation: portrait)';
+$WebPortrait: '(min-width: 840px) and (orientation: portrait)';
+$MobileLandscape: '(max-width: 959.98px) and (orientation: landscape)';
+$TabletLandscape: '(min-width: 960px) and (max-width: 1279.98px) and (orientation: landscape)';
+$WebLandscape: '(min-width: 1280px) and (orientation: landscape)';
+
+$breaking: (
+  //XSmall: '(max-width: 599.98px)',
+  //Small: '(min-width: 600px) and (max-width: 959.98px)',
+  //Medium: '(min-width: 960px) and (max-width: 1279.98px)',
+  //Large: '(min-width: 1280px) and (max-width: 1919.98px)',
+  //XLarge: '(min-width: 1920px)',
+  //Handset: '(max-width: 599.98px) and (orientation: portrait), ' +
+  //      '(max-width: 959.98px) and (orientation: landscape)',
+  //Tablet: '(min-width: 600px) and (max-width: 839.98px) and (orientation: portrait), ' +
+  //      '(min-width: 960px) and (max-width: 1279.98px) and (orientation: landscape)',
+  //Web: '(min-width: 840px) and (orientation: portrait), ' +
+  //      '(min-width: 1280px) and (orientation: landscape)',
+  MobilePort: $MobilPortrait,
+  TabletPort: $TabletPortrait,
+  WebPort: $WebPortrait,
+  MobileLand: $MobileLandscape,
+  TabletLand: $TabletLandscape,
+  WebLand: $WebLandscape,
+);
+
+@mixin make-display($size, $break: $breaking) {
+  @media #{map.get($break, $size)} {
+    @content
+  }
+}

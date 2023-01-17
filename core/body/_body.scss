@@ -1,10 +1,8 @@
-@charset "utf-8";
 
-@mixin make-body($min-width: false) {
+@mixin body($min-width: false) {
   body {
     display: block;
     margin: 0;
-    padding: 0;
     min-width: if($min-width, $min-width, null);
   }
 }
