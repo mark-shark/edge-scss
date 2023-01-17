@@ -1,8 +1,0 @@
-@charset "utf-8";
-
-@mixin make-base($min-width: false) {
-  @include make-host;
-  @include make-box-sizing;
-  @include make-html;
-  @include make-body($min-width);
-}
