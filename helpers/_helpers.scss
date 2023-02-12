@@ -1,14 +1,18 @@
-@use './breakpoints/breakpoints';
-@use './animate/animate';
-@use './rfs/rfs';
-@use './display/display';
+@use 'breakpoints/breakpoints';
+@use 'animate/animate';
+@use 'rfs/rfs';
+@use 'display/display';
 
-@mixin media-screen-min() {
-  @include breakpoints.media-screen-min();
+@mixin media-screen-min($bp) {
+  @include breakpoints.media-screen-min($bp) {
+    @content
+  }
 }
 
-@mixin media-screen-max() {
-  @include breakpoints.media-screen-max();
+@mixin media-screen-max($bp) {
+  @include breakpoints.media-screen-max($bp) {
+    @content
+  }
 }
 
 @mixin media-min($name) {

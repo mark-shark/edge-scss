@@ -1,10 +1,10 @@
 /* --- Components Development Kit --- */
 
-@use './image/image';
-@use './lists/lists';
-@use './icons/icon';
-@use './dialog/dialog';
-@use './buttons/buttons';
+@use 'image/image';
+@use 'lists/lists';
+@use 'icons/icon';
+@use 'dialog/dialog';
+@use 'buttons/buttons';
 
 @mixin img-aspect($aspect: false) {
   @include image.make-img-aspect($aspect);
@@ -44,4 +44,24 @@
   $color: false
 ) {
   @include buttons.make-btn($width, $height, $padding, $radius, $border, $background, $color);
+}
+
+@mixin dialog-overlay($color: false, $opacity: false, $blur: false) {
+  @include dialog.make-overlay($color, $opacity, $blur);
+}
+
+@mixin dialog-overlay-opacity($color: false, $opacity: false, $blur: false) {
+  @include dialog.make-overlay-opacity($color, $opacity, $blur);
+}
+
+@mixin dialog-overlay-show() {
+  @include dialog.make-overlay-opacity-show();
+}
+
+@mixin dialog-content() {
+  @include dialog.make-modal-content();
+}
+
+@mixin dialog-close($width: false) {
+  @include dialog.make-btn-close($width);
 }

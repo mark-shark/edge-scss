@@ -1,11 +1,14 @@
-@use './container/container';
-@use './row/row';
-@use './col/col';
-@use './grid-layout/grid-layout';
-@use '../helpers/display/display';
+@use 'container/container';
+@use 'row/row';
+@use 'col/col';
+@use 'grid-layout/grid-layout';
 
 @mixin container($size: false) {
   @include container.make-container($size);
+}
+
+@mixin inner-container($size: false) {
+  @include container.make-inner-container($size);
 }
 
 @mixin row() {
@@ -70,7 +73,9 @@
 
 @mixin grid-main($element: false) {
   @if($element == 'main') {
-    @include grid-layout.make-grid-main();
+    main {
+      @include grid-layout.make-grid-main();
+    }
   } @else  {
     @include grid-layout.make-grid-main();
   }
@@ -82,6 +87,33 @@
       @include grid-layout.make-grid-footer();
     }
   } @else {
+    @include grid-layout.make-grid-footer();
+  }
+}
+
+@mixin body-grid($height:false) {
+  //:host {
+  //  @include grid-layout.make-grid-ready();
+  //
+  //  &:has(aside:is(:empty)) {
+  //    main {
+  //      @include grid-layout.make-grid-main-app();
+  //    }
+  //  }
+  //}
+  header {
+    @include grid-layout.make-grid-header($height);
+    z-index: 3;
+  }
+  aside {
+    @include grid-layout.make-grid-aside();
+    z-index: 2;
+  }
+  main {
+    @include grid-layout.make-grid-main();
+    z-index: 2;
+  }
+  footer {
     @include grid-layout.make-grid-footer();
   }
 }

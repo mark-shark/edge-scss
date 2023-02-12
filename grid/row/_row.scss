@@ -57,7 +57,7 @@ $grid-gutter-width:           1.5rem !default;
 //
 // Specify on a parent element(e.g., .row) to force immediate children into NN
 // number of columns. Supports wrapping to new lines, but does not do a Masonry
-// style grid.
+// style page-grid.
 @mixin make-row-cols($count: false) {
   @if $count <= 12 {
     > * {

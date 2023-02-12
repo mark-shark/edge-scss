@@ -4,9 +4,9 @@
 //
 // Placed here so that others can override the default Sass maps and see automatic updates to utilities and more.
 
-// scss-docs-start theme-colors-rgb
+// scss-docs-start theme-color-rgb
 $theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value") !default;
-// scss-docs-end theme-colors-rgb
+// scss-docs-end theme-color-rgb
 
 $theme-colors-text: (
   "primary": $primary-text,
@@ -43,14 +43,14 @@ $theme-colors-border-subtle: (
 
 // Utilities maps
 //
-// Extends the default `$theme-colors` maps to help create our utilities.
+// Extends the default `$theme-color` maps to help create our utilities.
 
 // Come v6, we'll de-dupe these variables. Until then, for backward compatibility, we keep them to reassign.
-// scss-docs-start utilities-colors
+// scss-docs-start utilities-color
 $utilities-colors: $theme-colors-rgb !default;
-// scss-docs-end utilities-colors
+// scss-docs-end utilities-color
 
-// scss-docs-start utilities-text-colors
+// scss-docs-start utilities-text-color
 $utilities-text: map-merge(
   $utilities-colors,
   (
@@ -71,9 +71,9 @@ $utilities-text-emphasis-colors: (
   "light-emphasis": var(--#{$prefix}light-text),
   "dark-emphasis": var(--#{$prefix}dark-text)
 ) !default;
-// scss-docs-end utilities-text-colors
+// scss-docs-end utilities-text-color
 
-// scss-docs-start utilities-bg-colors
+// scss-docs-start utilities-bg-color
 $utilities-bg: map-merge(
   $utilities-colors,
   (
@@ -94,10 +94,10 @@ $utilities-bg-subtle: (
   "light-subtle": var(--#{$prefix}light-bg-subtle),
   "dark-subtle": var(--#{$prefix}dark-bg-subtle)
 ) !default;
-// $utilities-bg-subtle-colors: map-loop($utilities-bg-subtle, rgba-css-var, "$key", "bg") !default;
-// scss-docs-end utilities-bg-colors
+// $utilities-bg-subtle-color: map-loop($utilities-bg-subtle, rgba-css-utilitis, "$key", "bg") !default;
+// scss-docs-end utilities-bg-color
 
-// scss-docs-start utilities-border-colors
+// scss-docs-start utilities-border-color
 $utilities-border: map-merge(
   $utilities-colors,
   (
@@ -116,7 +116,7 @@ $utilities-border-subtle: (
   "light-subtle": var(--#{$prefix}light-border-subtle),
   "dark-subtle": var(--#{$prefix}dark-border-subtle)
 ) !default;
-// scss-docs-end utilities-border-colors
+// scss-docs-end utilities-border-color
 
 $negative-spacers: if($enable-negative-margins, negativify-map($spacers), null) !default;
 

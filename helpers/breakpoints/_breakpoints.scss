@@ -12,9 +12,9 @@ $grid-breakpoints: (
   xs: 321px,
   sm: 576px,
   md: 768px,
-  lg: 992px,
+  lg: 992px, // 992px,
   xl: 1200px,
-  xxl: 1400px
+  xxl: 1440px
 ) !default;
 
 $aspect-ratios: (

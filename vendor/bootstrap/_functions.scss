@@ -5,7 +5,7 @@
 // Utility mixins and functions for evaluating source code across our variables, maps, and mixins.
 
 // Ascending
-// Used to evaluate Sass maps like our grid breakpoints.
+// Used to evaluate Sass maps like our page-grid breakpoints.
 @mixin _assert-ascending($map, $map-name) {
   $prev-key: null;
   $prev-num: null;
@@ -109,7 +109,7 @@
 }
 
 // Replace `$search` with `$replace` in `$string`
-// Used on our SVG icon backgrounds for custom forms.
+// Used on our svg icon backgrounds for custom forms.
 //
 // @author Kitty Giraudel
 // @param {String} $string - Initial string

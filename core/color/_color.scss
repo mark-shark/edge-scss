@@ -20,7 +20,7 @@ $black:    #000 !default;
 // scss-docs-end gray-color-variables
 
 // fusv-disable
-// scss-docs-start gray-colors-map
+// scss-docs-start gray-color-map
 $grays: (
   "100": $gray-100,
   "200": $gray-200,
@@ -32,7 +32,7 @@ $grays: (
   "800": $gray-800,
   "900": $gray-900
 ) !default;
-// scss-docs-end gray-colors-map
+// scss-docs-end gray-color-map
 // fusv-enable
 
 // scss-docs-start color-variables
@@ -48,7 +48,7 @@ $teal:    #20c997 !default;
 $cyan:    #0dcaf0 !default;
 // scss-docs-end color-variables
 
-// scss-docs-start colors-map
+// scss-docs-start color-map
 $colors: (
   "blue":       $blue,
   "indigo":     $indigo,
@@ -65,11 +65,11 @@ $colors: (
   "gray":       $gray-600,
   "gray-dark":  $gray-800
 ) !default;
-// scss-docs-end colors-map
+// scss-docs-end color-map
 
 $min-contrast-ratio:   4.5 !default;
 
-// Customize the light and dark text colors for use in our color contrast function.
+// Customize the light and dark text color for use in our color contrast function.
 $color-contrast-dark:      $black !default;
 $color-contrast-light:     $white !default;
 
@@ -294,63 +294,3 @@ $cyans: (
   "cyan-900": $cyan-900
 ) !default;
 // fusv-enable
-
-// scss-docs-start theme-color-variables
-$primary:       $blue !default;
-$secondary:     $gray-600 !default;
-$success:       $green !default;
-$info:          $cyan !default;
-$warning:       $yellow !default;
-$danger:        $red !default;
-$light:         $gray-100 !default;
-$dark:          $gray-900 !default;
-// scss-docs-end theme-color-variables
-
-// scss-docs-start theme-colors-map
-$theme-colors: (
-  "primary":    $primary,
-  "secondary":  $secondary,
-  "success":    $success,
-  "info":       $info,
-  "warning":    $warning,
-  "danger":     $danger,
-  "light":      $light,
-  "dark":       $dark
-) !default;
-// scss-docs-end theme-colors-map
-
-$primary-text:            $blue-600 !default;
-$secondary-text:          $gray-600 !default;
-$success-text:            $green-600 !default;
-$info-text:               $cyan-700 !default;
-$warning-text:            $yellow-700 !default;
-$danger-text:             $red-600 !default;
-$light-text:              $gray-600 !default;
-$dark-text:               $gray-700 !default;
-
-$primary-bg-subtle:       $blue-100 !default;
-$secondary-bg-subtle:     $gray-100 !default;
-$success-bg-subtle:       $green-100 !default;
-$info-bg-subtle:          $cyan-100 !default;
-$warning-bg-subtle:       $yellow-100 !default;
-$danger-bg-subtle:        $red-100 !default;
-$light-bg-subtle:         mix($gray-100, $white) !default;
-$dark-bg-subtle:          $gray-400 !default;
-
-$primary-border-subtle:   $blue-200 !default;
-$secondary-border-subtle: $gray-200 !default;
-$success-border-subtle:   $green-200 !default;
-$info-border-subtle:      $cyan-200 !default;
-$warning-border-subtle:   $yellow-200 !default;
-$danger-border-subtle:    $red-200 !default;
-$light-border-subtle:     $gray-200 !default;
-$dark-border-subtle:      $gray-500 !default;
-
-// Characters which are escaped by the escape-svg function
-$escaped-characters: (
-    ("<", "%3c"),
-    (">", "%3e"),
-    ("#", "%23"),
-    ("(", "%28"),
-    (")", "%29"),
-) !default;

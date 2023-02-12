@@ -1,21 +1,39 @@
 
+//  Themes
+@forward 'core/theme/theme' show define-light-theme, define-dark-theme,
+define-palette, get-contrast-color-from-palette, get-color-from-palette,
+get-color-config, get-typography-config;
+@forward './core/theme/palette' show $red-palette, $pink-palette, $indigo-palette,
+$purple-palette, $deep-purple-palette, $blue-palette, $light-blue-palette, $cyan-palette,
+$teal-palette, $green-palette, $light-green-palette, $lime-palette, $yellow-palette,
+$amber-palette, $orange-palette, $deep-orange-palette, $brown-palette, $grey-palette,
+$gray-palette, $blue-grey-palette, $blue-gray-palette, $light-theme-background-palette,
+$dark-theme-background-palette, $light-theme-foreground-palette, $dark-theme-foreground-palette;
+
+@forward 'core/core-theme' as core-* show core-color, core-theme;
 //  Core
-@forward './core/core' show core, html, body, preflights, box-sizing, clearfix;
+@forward 'core/core' show core, root, html, body, host, preflights, box-sizing, clearfix, theme-root;
 //  Helpers
-@forward './helpers/helpers' show media-screen-min, media-screen-max, media-min, media-max, media-between;
-@forward './helpers/helpers' show animate-load;
-@forward './helpers/helpers' show _rfs-media-query, _rfs-rule, _rfs-media-query-rule, rfs;  //  rfs
-@forward './helpers/helpers' show font-size, padding, padding-top, padding-right, padding-bottom, padding-left, margin,
+@forward 'helpers/helpers' show media-screen-min, media-screen-max, media-min, media-max, media-between;
+@forward 'helpers/helpers' show animate-load;
+@forward 'helpers/helpers' show _rfs-media-query, _rfs-rule, _rfs-media-query-rule, rfs;  //  rfs
+@forward 'helpers/helpers' show font-size, padding, padding-top, padding-right, padding-bottom, padding-left, margin,
 margin-top, margin-right, margin-bottom, margin-left; //  rfs
-@forward './helpers/helpers' show display;
+@forward 'helpers/helpers' show display;
 //  Grid helpers
-@forward './grid/grid' show col, col-xs-, col-sm-, col-md-, col-lg-, col-xl-, col-xxl-;
-@forward './grid/grid' show grid-ready, grid-header, grid-aside, grid-main, grid-footer;
-@forward './grid/grid' show container, row, row-cols;
+@forward 'grid/grid' show col, col-xs-, col-sm-, col-md-, col-lg-, col-xl-, col-xxl-;
+@forward 'grid/grid' show grid-ready, grid-header, grid-aside, grid-main, grid-footer;
+@forward 'grid/grid' show container, inner-container, row, row-cols;
+@forward 'grid/grid' show body-grid;
 //  CDK
-@forward './cdk/cdk' show img-aspect, fluid-img, figure, figure-img;
-@forward './cdk/cdk' show list-unstyled, list-reset;
-@forward './cdk/cdk' show icon;
-@forward './cdk/cdk' show btn;
+@forward 'cdk/cdk' show img-aspect, fluid-img, figure, figure-img;
+@forward 'cdk/cdk' show list-unstyled, list-reset;
+@forward 'cdk/cdk' show icon;
+@forward 'cdk/cdk' show btn;
+@forward 'cdk/cdk' show dialog-overlay, dialog-content; // display: none | block;
+@forward 'cdk/cdk' show dialog-overlay-opacity, dialog-overlay-show, dialog-close;
+
+//  Animation
+@forward 'animations/animations' show ripple;
 
 //API

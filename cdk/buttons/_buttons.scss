@@ -1,20 +1,13 @@
 @charset "utf-8";
 @use "sass:string";
 @use "sass:meta";
+@use "sass:map";
 @use "sass:list";
+@use '../../core/theme/palette';
+@use '../../core/theme/theme';
 @use '../../helpers/breakpoints/breakpoints' as mq;
 
 $grid-gutter-width:           1.5rem !default;
-
-$white: white;
-$primary: lightblue;
-$secondary: gray;
-$success: green;
-$info: cyan;
-$danger: red;
-$light: #D3D3D3;
-$dark: #333;
-
 
 //  Btn
 @mixin btn($background: false) {
@@ -26,6 +19,8 @@ $dark: #333;
     @include btn--success;
   } @else if $background == 'info' {
     @include btn--info;
+  } @else if $background == 'warning' {
+    @include btn--warning;
   } @else if $background == 'danger' {
     @include btn--danger;
   } @else if $background == 'light' {
@@ -39,106 +34,176 @@ $dark: #333;
 
 //  Primary
 @mixin btn--primary() {
-  background-color: $primary;
-  border-color: $primary;
-  color: $white;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--text-color);
+  background-position: center;
+  transition: background 0.8s;
 
   &:hover, &:visited {
-    color: $white;
+    color: var(--text-color);
     text-decoration: none;
   }
   &:hover {
-    background-color: mix(white, $primary, 20%);
+    background: var(--primary-color-ripple-5) radial-gradient(circle, transparent 1%, var(--primary-color-ripple-5) 1%) center/15000%;
+  }
+  &:active {
+    background-color: var(--primary-color-ripple-10);
+    background-size: 100%;
+    transition: background 0s;
   }
 }
 
 //  Secondary
 @mixin btn--secondary() {
-  background-color: $secondary;
-  border-color: $secondary;
-  color: $white;
+  background-color: var(--second-color);
+  border-color: var(--second-color);
+  color: var(--text-color);
+  background-position: center;
+  transition: background 0.8s;
 
   &:hover, &:visited {
-    color: $white;
+    color: var(--text-color);
     text-decoration: none;
   }
   &:hover {
-    background-color: mix(white, $secondary, 20%);
+    background: var(--second-color-ripple-5) radial-gradient(circle, transparent 1%, var(--second-color-ripple-5) 1%) center/15000%;
+  }
+  &:active {
+    background-color: var(--second-color-ripple-10);
+    background-size: 100%;
+    transition: background 0s;
   }
 }
 
 //  Success
 @mixin btn--success() {
-  background-color: $success;
-  border-color: $success;
-  color: $white;
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+  color: var(--text-color);
+  background-position: center;
+  transition: background 0.8s;
 
   &:hover, &:visited {
-    color: $white;
+    color: var(--text-color);
     text-decoration: none;
   }
   &:hover {
-    background-color: mix(white, $success, 20%);
+    background: var(--success-color-ripple-5) radial-gradient(circle, transparent 1%, var(--success-color-ripple-5) 1%) center/15000%;
+  }
+  &:active {
+    background-color: var(--success-color-ripple-10);
+    background-size: 100%;
+    transition: background 0s;
   }
 }
 
 //  Info
 @mixin btn--info() {
-  background-color: $info;
-  border-color: $info;
-  color: $white;
+  background-color: var(--info-color);
+  border-color: var(--info-color);
+  color: var(--text-color);
+  background-position: center;
+  transition: background 0.8s;
 
   &:hover, &:visited {
-    color: $white;
+    color: var(--text-color);
     text-decoration: none;
   }
   &:hover {
-    background-color: mix(white, $info, 20%);
+    background: var(--info-color-ripple-5) radial-gradient(circle, transparent 1%, var(--info-color-ripple-5) 1%) center/15000%;
+  }
+  &:active {
+    background-color: var(--info-color-ripple-10);
+    background-size: 100%;
+    transition: background 0s;
+  }
+}
+
+@mixin btn--warning() {
+  background-color: var(--warning-color);
+  border-color: var(--warning-color);
+  color: var(--text-color);
+  background-position: center;
+  transition: background 0.8s;
+
+  &:hover, &:visited {
+    color: var(--text-color);
+    text-decoration: none;
+  }
+  &:hover {
+    background: var(--warning-color-ripple-5) radial-gradient(circle, transparent 1%, var(--warning-color-ripple-5) 1%) center/15000%;
+  }
+  &:active {
+    background-color: var(--warning-color-ripple-10);
+    background-size: 100%;
+    transition: background 0s;
   }
 }
 
 //  Danger
 @mixin btn--danger() {
-  background-color: $danger;
-  border-color: $danger;
-  color: $white;
+  background-color: var(--danger-color);
+  border-color: var(--danger-color);
+  color: var(--text-color);
+  background-position: center;
+  transition: background 0.8s;
 
   &:hover, &:visited {
-    color: $white;
+    color: var(--text-color);
     text-decoration: none;
   }
   &:hover {
-    background-color: mix(white, $danger, 20%);
+    background: var(--danger-color-ripple-5) radial-gradient(circle, transparent 1%, var(--danger-color-ripple-5) 1%) center/15000%;
+  }
+  &:active {
+    background-color: var(--danger-color-ripple-10);
+    background-size: 100%;
+    transition: background 0s;
   }
 }
 
 //  Light
 @mixin btn--light() {
-  background-color: $light;
-  border-color: $light;
-  color: $dark;
+  background-color: var(--light-color);
+  border-color: var(--light-color);
+  color: var(--dark-color);
+  background-position: center;
+  transition: background 0.8s;
 
   &:hover, &:visited {
-    color: $dark;
+    color: var(--dark-color);
     text-decoration: none;
   }
   &:hover {
-    background-color: mix($dark, $light, 20%);
+    background: var(--light-color-ripple-5) radial-gradient(circle, transparent 1%, var(--light-color-ripple-5) 1%) center/15000%;
+  }
+  &:active {
+    background-color: var(--light-color-ripple-10);
+    background-size: 100%;
+    transition: background 0s;
   }
 }
 
 //  Dark
 @mixin btn--dark() {
-  background-color: $dark;
-  border-color: $dark;
-  color: $light;
+  background-color: var(--dark-color);
+  border-color: var(--dark-color);
+  color: var(--light-color);
+  background-position: center;
+  transition: background 0.8s;
 
   &:hover, &:visited {
-    color: $light;
+    color: var(--light-color);
     text-decoration: none;
   }
   &:hover {
-    background-color: mix($dark, $light, 80%);
+    background: var(--dark-color-ripple-5) radial-gradient(circle, transparent 1%, var(--dark-color-ripple-5) 1%) center/15000%;
+  }
+  &:active {
+    background-color: var(--dark-color-ripple-10);
+    background-size: 100%;
+    transition: background 0s;
   }
 }
 
@@ -155,20 +220,21 @@ $dark: #333;
   border-width: if($border, null, 0);
   cursor: pointer;
 
-  height: if($height, calc(1.5 * #{$height}), calc(1.5 * #{$gutter}));
+  height: if($height, calc(1.5 * #{$height}), null);
   @include mq.media-min(md) {
-    height: if($height, calc(1.667 * #{$height}), calc(1.667 * #{$gutter}));
+    height: if($height, calc(1.667 * #{$height}), null);
   }
   @include mq.media-min(lg) {
-    height: if($height, calc(2 * #{$height}), calc(2 * #{$gutter}));
+    height: if($height, calc(2 * #{$height}), null);
   }
 
   &:disabled {
-    cursor: none;
+    cursor: not-allowed;
+    opacity: .5;
   }
 }
 
-$valid: primary, secondary, success, info, danger, light, dark;
+$valid: primary, secondary, success, info, warning, danger, light, dark;
 
 @mixin make-btn(
   $width: false,
@@ -181,24 +247,26 @@ $valid: primary, secondary, success, info, danger, light, dark;
 ) {
   /*default*/
   @include make-btn-ready($width, $height, $border);
-  border-radius: if($radius, $radius, null);
-  padding: if($padding, 0, null) if($padding, $padding, 1rem);
-  border: if($background == false and $color == false and $border == false
-          or $background == false and $color != false and $border == false,
-          1px solid red, null
-            );
-  //
-  //
-  @if (not list.index($valid, $background) and $color) {
-    color: $color;
-    background-color: if($background, $background, null);
+  border-radius: if($radius, $radius, .2rem);
+  padding: if($height, null, .5rem) if($padding, 0 #{$padding}, 1rem);
 
-    &:hover, &:visited, &:active {
+  @if (not list.index($valid, $background) and $color) {
+    color: if($color, $color, null);
+    background-color: if($background, #{$background}, null);
+    background-position: if($background, center, null);
+    transition: if($background, background 0.8s, null);
+
+    &:hover, &:visited {
       color: if($color, $color, null);
       text-decoration: none;
     }
     &:hover {
-      background-color: if($background, mix(white, $background, 20%), null);
+      background: if($background, darken($background, 5%) radial-gradient(circle, transparent 1%, darken($background, 5%) 1%) center/15000%, null);
+    }
+    &:active {
+      background-color: if($background, darken($background, 10%), null);
+      background-size: if($background, 100%, null);
+      transition: if($background, background 0s, null);
     }
     //
     //
@@ -213,6 +281,13 @@ $valid: primary, secondary, success, info, danger, light, dark;
     //
   } @else if($color and list.index($valid, $background)) {
     @error 'ERROR:btn.default-variant, must delete variable "$color: ...., or change defalt variant to set own background-color"!!!'
+    //
+    //
+  } @else if(not $background and not list.index($valid, $background)) {
+    transition: hover 0.3s;
+    &:hover {
+      box-shadow: 0 3px 5px 1px #0003, 0 6px 10px #00000024, 0 1px 18px #0000001f;
+    }
     //
     //
   }

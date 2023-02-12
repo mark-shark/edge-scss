@@ -1,0 +1,25 @@
+
+$dark-secondary-text: rgba(black, 0.05);
+
+$darken-color-5: darken($dark-secondary-text, 5%);
+$darken-color-10: darken($dark-secondary-text, 10%);
+
+
+
+@mixin make-ripple($background-color: false) {
+  --darg-bg-color: $dark-secondary-text;
+  --dark-color-5: #{$darken-color-5};
+  --dark-color-10: #{$darken-color-10};
+  background-color: if($background-color, $background-color, inherit);
+  background-position: center;
+  transition: background 0.8s;
+
+  &:hover {
+    background: if($background-color, darken($background-color, 5%) radial-gradient(circle, transparent 1%, darken($background-color, 5%) 1%) center/15000%, var(--dark-color-5) radial-gradient(circle, transparent 1%, var(--dark-color-5) 1%) center/15000%);
+  }
+  &:active {
+    background-color: if($background-color, darken($background-color, 10%), var(--dark-color-10));
+    background-size: 100%;
+    transition: background 0s;
+  }
+}
