@@ -1,0 +1,5 @@
+@use 'ripple/ripple';
+
+@mixin ripple($background-color: false) {
+  @include ripple.make-ripple($background-color);
+}

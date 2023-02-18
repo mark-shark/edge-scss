@@ -1,0 +1,119 @@
+@use 'container/container';
+@use 'row/row';
+@use 'col/col';
+@use 'grid-layout/grid-layout';
+
+@mixin container($size: false) {
+  @include container.make-container($size);
+}
+
+@mixin inner-container($size: false) {
+  @include container.make-inner-container($size);
+}
+
+@mixin row() {
+  @include row.make-row();
+}
+
+@mixin row-cols($count: false) {
+  @include row.make-row-cols($count);
+}
+
+@mixin col($size: false) {
+  @include col.make-col($size)
+}
+
+@mixin col-xs-($size: false) {
+  @include col.make-col-xs-($size)
+}
+
+@mixin col-sm-($size: false) {
+  @include col.make-col-sm-($size)
+}
+
+@mixin col-md-($size: false) {
+  @include col.make-col-md-($size)
+}
+
+@mixin col-lg-($size: false) {
+  @include col.make-col-lg-($size)
+}
+
+@mixin col-xl-($size: false) {
+  @include col.make-col-xl-($size)
+}
+
+@mixin col-xxl-($size: false) {
+  @include col.make-col-xxl-($size)
+}
+
+@mixin grid-ready($col-gap: false, $row-gap: false) {
+  @include grid-layout.make-grid-ready($col-gap, $row-gap);
+}
+
+@mixin grid-header($element: false) {
+  @if($element == 'header') {
+    header {
+      @include grid-layout.make-grid-header();
+    }
+  } @else {
+    @include grid-layout.make-grid-header();
+  }
+}
+
+@mixin grid-aside($element: false) {
+  @if($element == 'aside') {
+    aside {
+      @include grid-layout.make-grid-aside();
+    }
+  } @else {
+    @include grid-layout.make-grid-aside();
+  }
+}
+
+@mixin grid-main($element: false) {
+  @if($element == 'main') {
+    main {
+      @include grid-layout.make-grid-main();
+    }
+  } @else  {
+    @include grid-layout.make-grid-main();
+  }
+}
+
+@mixin grid-footer($element: false) {
+  @if($element == 'footer') {
+    footer {
+      @include grid-layout.make-grid-footer();
+    }
+  } @else {
+    @include grid-layout.make-grid-footer();
+  }
+}
+
+@mixin body-grid($height:false) {
+  //:host {
+  //  @include grid-layout.make-grid-ready();
+  //
+  //  &:has(aside:is(:empty)) {
+  //    main {
+  //      @include grid-layout.make-grid-main-app();
+  //    }
+  //  }
+  //}
+  header {
+    @include grid-layout.make-grid-header($height);
+    z-index: 3;
+  }
+  aside {
+    @include grid-layout.make-grid-aside();
+    z-index: 2;
+  }
+  main {
+    @include grid-layout.make-grid-main();
+    z-index: 2;
+  }
+  footer {
+    @include grid-layout.make-grid-footer();
+  }
+}

@@ -1,0 +1,11 @@
+@use 'dialog';
+
+@mixin dialog-overlay($color: false, $opacity: false, $blur: false) {
+  @include dialog.make-overlay($color, $opacity, $blur);
+}
+
+@mixin dialog-content($width: false) {
+  @include dialog.make-modal-content($width);
+}
+
+

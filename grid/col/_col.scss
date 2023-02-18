@@ -1,0 +1,153 @@
+
+@use '../../helpers/breakpoints/breakpoints' as mq;
+
+@function divide($dividend, $divisor, $precision: 10) {
+  $sign: if($dividend > 0 and $divisor > 0 or $dividend < 0 and $divisor < 0, 1, -1);
+  $dividend: abs($dividend);
+  $divisor: abs($divisor);
+  @if $dividend == 0 {
+    @return 0;
+  }
+  @if $divisor == 0 {
+    @error "Cannot divide by 0";
+  }
+  $remainder: $dividend;
+  $result: 0;
+  $factor: 10;
+  @while ($remainder > 0 and $precision >= 0) {
+    $quotient: 0;
+    @while ($remainder >= $divisor) {
+      $remainder: $remainder - $divisor;
+      $quotient: $quotient + 1;
+    }
+    $result: $result * 10 + $quotient;
+    $factor: $factor * .1;
+    $remainder: $remainder * 10;
+    $precision: $precision - 1;
+    @if ($precision < 0 and $remainder >= $divisor * 5) {
+      $result: $result + 1;
+    }
+  }
+  $result: $result * $factor * $sign;
+  $dividend-unit: unit($dividend);
+  $divisor-unit: unit($divisor);
+  $unit-map: (
+    "px": 1px,
+    "rem": 1rem,
+    "em": 1em,
+    "%": 1%
+  );
+  @if ($dividend-unit != $divisor-unit and map-has-key($unit-map, $dividend-unit)) {
+    $result: $result * map-get($unit-map, $dividend-unit);
+  }
+  @return $result;
+}
+
+$grid-gutter-width:           1.5rem !default;
+$grid-columns:                12 !default;
+
+//  Column Ready flex
+@mixin make-col-ready() {
+  //box-sizing: if(variable-exists(include-column-box-sizing) and $include-column-box-sizing, border-box, null);
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%; // Prevent `.col-auto`, `.col` (& responsive variants) from breaking out the page-grid
+  padding-right: calc(#{$grid-gutter-width} * .5); // stylelint-disable-line function-disallowed-list
+  padding-left: calc(#{$grid-gutter-width} * .5); // stylelint-disable-line function-disallowed-list
+  margin-top: 0;
+}
+
+//  Column Auto flex
+@mixin make-col-auto() {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+@mixin make-col-offset($size, $columns: $grid-columns) {
+  $num: divide($size, $columns);
+  margin-left: if($num == 0, 0, percentage($num));
+}
+
+
+//Columns col-(1-12)
+@mixin make-col($size: false, $columns: $grid-columns) {
+  @if $size {
+    flex: 0 0 auto;
+    width: percentage(divide($size, $columns));
+  } @else {
+    flex: 1 1 0;
+    max-width: 100%;
+  }
+}
+
+//Columns col-xs-(1-12)
+@mixin make-col-xs-($size: false, $columns: $grid-columns) {
+  @if $size <= 12 {
+    @include mq.media-min(xs) {
+      flex: 0 0 auto;
+      width: percentage(divide($size, $columns));
+    }
+  } @else {
+    @error "ERROR must insert number of width columns!!! => (1 - 12)";
+  }
+}
+
+//Columns col-sm-(1-12)
+@mixin make-col-sm-($size: false, $columns: $grid-columns) {
+  @if $size <= 12 {
+    @include mq.media-min(sm) {
+      flex: 0 0 auto;
+      width: percentage(divide($size, $columns));
+    }
+  } @else {
+    @error "ERROR must insert number of width columns!!! => (1 - 12)";
+  }
+}
+
+//Columns col-md-(1-12)
+@mixin make-col-md-($size: false, $columns: $grid-columns) {
+  @if $size <= 12 {
+    @include mq.media-min(md) {
+      flex: 0 0 auto;
+      width: percentage(divide($size, $columns));
+    }
+  } @else {
+    @error "ERROR must insert number of width columns!!! => (1 - 12)";
+  }
+}
+
+//Columns col-lg-(1-12)
+@mixin make-col-lg-($size: false, $columns: $grid-columns) {
+  @if $size <= 12 {
+    @include mq.media-min(lg) {
+      flex: 0 0 auto;
+      width: percentage(divide($size, $columns));
+    }
+  } @else {
+    @error "ERROR must insert number of width columns!!! => (1 - 12)";
+  }
+}
+
+//Columns col-xl-(1-12)
+@mixin make-col-xl-($size: false, $columns: $grid-columns) {
+  @if $size <= 12 {
+    @include mq.media-min(xl) {
+      flex: 0 0 auto;
+      width: percentage(divide($size, $columns));
+    }
+  } @else {
+    @error "ERROR must insert number of width columns!!! => (1 - 12)";
+  }
+}
+
+//Columns col-xxl-(1-12)
+@mixin make-col-xxl-($size: false, $columns: $grid-columns) {
+  @if $size <= 12 {
+    @include mq.media-min(xxl) {
+      flex: 0 0 auto;
+      width: percentage(divide($size, $columns));
+    }
+  } @else {
+    @error "ERROR must insert number of width columns!!! => (1 - 12)";
+  }
+}

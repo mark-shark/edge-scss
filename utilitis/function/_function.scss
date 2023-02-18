@@ -1,0 +1,9 @@
+
+//Force-state function
+@function get-force-state($name, $force-name: map-keys($force-state)) {
+  $n: index($force-name, $name);
+  @if not $n {
+    @error "Force-state `#{$name}` not font in `#{$force-state}`";
+  }
+  @return $name;
+}

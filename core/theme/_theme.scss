@@ -1,0 +1,196 @@
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:meta';
+@use 'palette';
+
+
+//
+@function _get-color-from-palette($palette, $hue) {
+  @if map.has-key($palette, $hue) {
+    @return map.get($palette, $hue);
+  }
+
+  @error 'Hue "' + $hue + '" does not exist in palette. Available hues are: ' + map.keys($palette);
+}
+
+@function get-contrast-color-from-palette($palette, $hue) {
+  @return map.get(map.get($palette, contrast), $hue);
+}
+
+//
+@function define-palette($base-palette, $default: 500, $lighter: 100, $darker: 700,
+  $text: $default) {
+  $result: map.merge($base-palette, (
+    default: _get-color-from-palette($base-palette, $default),
+    lighter: _get-color-from-palette($base-palette, $lighter),
+    darker: _get-color-from-palette($base-palette, $darker),
+    text: _get-color-from-palette($base-palette, $text),
+
+    default-contrast: get-contrast-color-from-palette($base-palette, $default),
+    lighter-contrast: get-contrast-color-from-palette($base-palette, $lighter),
+    darker-contrast: get-contrast-color-from-palette($base-palette, $darker)
+  ));
+
+  // For each hue in the palette, add a "-contrast" color to the map.
+  @each $hue, $color in $base-palette {
+    $result: map.merge($result, (
+      '#{$hue}-contrast': get-contrast-color-from-palette($base-palette, $hue)
+    ));
+  }
+
+  @return $result;
+}
+
+//
+@function _validate-theme($theme) {
+  @if map.get($theme, color) {
+    $color: map.get($theme, color);
+    @if not map.get($color, primary) {
+      @error 'Theme does not define a valid "primary" palette.';
+    }
+    @else if not map.get($color, accent) {
+      @error 'Theme does not define a valid "accent" palette.';
+    }
+    @else if not map.get($color, warn) {
+      @error 'Theme does not define a valid "warn" palette.';
+    }
+  }
+  @return $theme;
+}
+
+//
+@function _create-light-color-config($primary, $accent, $warn: null) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: if($warn != null, $warn, define-palette(palette.$red-palette)),
+    is-dark: false,
+    foreground: palette.$light-theme-foreground-palette,
+    background: palette.$light-theme-background-palette,
+  );
+}
+
+//
+@function _create-dark-color-config($primary, $accent, $warn: null) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: if($warn != null, $warn, define-palette(palette.$red-palette)),
+    is-dark: true,
+    foreground: palette.$dark-theme-foreground-palette,
+    background: palette.$dark-theme-background-palette,
+  );
+}
+
+//
+@function define-light-theme($primary, $accent: null, $warn: define-palette(palette.$red-palette)) {
+
+  @if $accent != null {
+    @return private-create-backwards-compatibility-theme(_validate-theme((
+      _is-legacy-theme: true,
+      color: _create-light-color-config($primary, $accent, $warn),
+    )));
+  }
+
+  $result: $primary;
+  @if map.get($primary, color) {
+    $color-settings: map.get($primary, color);
+    $primary: map.get($color-settings, primary);
+    $accent: map.get($color-settings, accent);
+    $warn: map.get($color-settings, warn);
+    $result: map.merge($result, (color: _create-dark-color-config($primary, $accent, $warn)));
+  }
+  @return $result;
+}
+
+//
+@function define-dark-theme($primary, $accent: null, $warn: define-palette(palette.$red-palette)) {
+
+  @if $accent != null {
+    @return private-create-backwards-compatibility-theme(_validate-theme((
+      _is-legacy-theme: true,
+      color: _create-light-color-config($primary, $accent, $warn),
+    )));
+  }
+
+  $result: $primary;
+  @if map.get($primary, color) {
+    $color-settings: map.get($primary, color);
+    $primary: map.get($color-settings, primary);
+    $accent: map.get($color-settings, accent);
+    $warn: map.get($color-settings, warn);
+    $result: map.merge($result, (color: _create-dark-color-config($primary, $accent, $warn)));
+  }
+  @return $result;
+}
+
+//
+@function private-create-backwards-compatibility-theme($theme) {
+  @if not map.get($theme, color) {
+    @return $theme;
+  }
+  $color: map.get($theme, color);
+  @return map.merge($theme, $color);
+}
+
+//
+@function private-is-theme-object($value) {
+  @return meta.type-of($value) == 'map' and (
+    map.has-key($value, color) or
+    map.has-key($value, density) or
+    map.has-key($value, typography) or
+    list.length($value) == 0
+  );
+}
+
+//
+@function get-typography-config($theme-or-config, $default: null) {
+  // If a configuration has been passed, return the config directly.
+  @if not private-is-theme-object($theme-or-config) {
+    @return $theme-or-config;
+  }
+  // In case a theme has been passed, extract the configuration if present,
+  // or fall back to the default typography config.
+  @if (map.has-key($theme-or-config, typography)) {
+    @return map.get($theme-or-config, typography);
+  }
+  @return $default;
+}
+
+//
+@function get-color-config($theme, $default: null) {
+  // If a configuration has been passed, return the config directly.
+  @if not private-is-theme-object($theme) {
+    @return $theme;
+  }
+  // If the theme has been constructed through the legacy theming API, we use the theme object
+  // as color configuration instead of the dedicated `color` property. We do this because for
+  // backwards compatibility, we copied the color configuration from `$theme.color` to `$theme`.
+  // Hence developers could customize the colors at top-level and want to respect these changes
+  // TODO: Remove when legacy theming API is removed.
+  @if private-is-legacy-constructed-theme($theme) {
+    @return $theme;
+  }
+  @if map.has-key($theme, color) {
+    @return map.get($theme, color);
+  }
+  @return $default;
+}
+
+//
+@function private-legacy-get-theme($theme-or-color-config) {
+  @if private-is-theme-object($theme-or-color-config) {
+    @return $theme-or-color-config;
+  }
+  @return private-create-backwards-compatibility-theme((
+    _is-legacy-theme: true,
+    color: $theme-or-color-config
+  ));
+}
+
+//
+@function private-is-legacy-constructed-theme($value) {
+  @return meta.type-of($value) == 'map' and map.get($value, '_is-legacy-theme');
+}
+
+

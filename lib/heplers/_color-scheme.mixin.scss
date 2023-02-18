@@ -1,7 +1,0 @@
-@charset "utf-8";
-
-@mixin make-color-scheme($name) {
-  @media (prefers-color-scheme: #{$name}) {
-    @content;
-  }
-}

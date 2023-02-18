@@ -1,0 +1,61 @@
+
+
+// scss-docs-start theme-color-variables
+$primary:       $blue !default;
+$secondary:     $gray-600 !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$light:         $gray-100 !default;
+$dark:          $gray-900 !default;
+// scss-docs-end theme-color-variables
+
+// scss-docs-start theme-color-map
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+) !default;
+// scss-docs-end theme-color-map
+
+$primary-text:            $blue-600 !default;
+$secondary-text:          $gray-600 !default;
+$success-text:            $green-600 !default;
+$info-text:               $cyan-700 !default;
+$warning-text:            $yellow-700 !default;
+$danger-text:             $red-600 !default;
+$light-text:              $gray-600 !default;
+$dark-text:               $gray-700 !default;
+
+$primary-bg-subtle:       $blue-100 !default;
+$secondary-bg-subtle:     $gray-100 !default;
+$success-bg-subtle:       $green-100 !default;
+$info-bg-subtle:          $cyan-100 !default;
+$warning-bg-subtle:       $yellow-100 !default;
+$danger-bg-subtle:        $red-100 !default;
+$light-bg-subtle:         mix($gray-100, $white) !default;
+$dark-bg-subtle:          $gray-400 !default;
+
+$primary-border-subtle:   $blue-200 !default;
+$secondary-border-subtle: $gray-200 !default;
+$success-border-subtle:   $green-200 !default;
+$info-border-subtle:      $cyan-200 !default;
+$warning-border-subtle:   $yellow-200 !default;
+$danger-border-subtle:    $red-200 !default;
+$light-border-subtle:     $gray-200 !default;
+$dark-border-subtle:      $gray-500 !default;
+
+// Characters which are escaped by the escape-svg function
+$escaped-characters: (
+    ("<", "%3c"),
+    (">", "%3e"),
+    ("#", "%23"),
+    ("(", "%28"),
+    (")", "%29"),
+) !default;

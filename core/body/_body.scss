@@ -1,0 +1,24 @@
+
+@mixin body($min-width: false) {
+  ::selection {
+
+  }
+
+  body {
+    background-color: var(--bg-theme-color);
+    color: var(--text-theme-color);
+
+    display: block;
+    margin: 0;
+    min-width: if($min-width, $min-width, null);
+    transition: background-color .8s;
+
+    &.theme {
+      &-dark {
+        background-color: var(--bg-theme-color);
+        color: var(--text-theme-color);
+      }
+    }
+  }
+}
+

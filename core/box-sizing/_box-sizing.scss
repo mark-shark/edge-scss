@@ -1,0 +1,6 @@
+
+@mixin box-sizing() {
+  *, ::after, ::before {
+    box-sizing: border-box;
+  }
+}

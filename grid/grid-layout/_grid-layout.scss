@@ -1,0 +1,135 @@
+@use '../../helpers/breakpoints/breakpoints' as mq;
+
+
+
+//Display page-grid
+@mixin make-grid-ready($col-gap: false, $row-gap: false) {
+  width: 100%;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 100%));
+  column-gap: if($col-gap, calc(#{$col-gap} * .5), null);
+  row-gap: if($row-gap, calc(#{$row-gap} * .5), null);
+
+  @include mq.media-min(sm) {
+    grid-template-columns: repeat(4, minmax(0, 100%));
+  }
+  @include mq.media-min(md) {
+    grid-template-columns: repeat(8, minmax(0, 100%));
+    column-gap: if($col-gap, calc(#{$col-gap} * 1), null);
+    row-gap: if($row-gap, calc(#{$row-gap} * 1), null);
+  }
+  @include mq.media-min(lg) {
+    //grid-template-columns: repeat(8, minmax(0, 100%));
+  }
+  @include mq.media-min(xl) {
+    grid-template-columns: repeat(12, minmax(0, 100%));
+    column-gap: if($col-gap, calc(#{$col-gap} * 1.5), null);
+    row-gap: if($row-gap, calc(#{$row-gap} * 1.5), null);
+  }
+}
+
+//Header
+@mixin make-grid-header($height: false) {
+  min-height: if($height, $height, 60px);
+  width: 100%;
+  max-width: 100%;
+  grid-column: 1 / 3;
+
+  @include mq.media-min(sm) {
+    grid-column: 1 / 5;
+  }
+  @include mq.media-min(md) {
+    grid-column: 1 / 9;
+  }
+  @include mq.media-min(lg) {
+    //grid-column: 1 / 9;
+  }
+  @include mq.media-min(xl) {
+    grid-column: 1 / 13;
+  }
+}
+
+//Aside
+@mixin make-grid-aside() {
+  width: 100%;
+  max-width: 100%;
+  grid-column: 1 / 3;
+
+  &:empty {
+    display: none;
+  }
+
+  @include mq.media-min(sm) {
+    grid-column: 1 / 5;
+  }
+  @include mq.media-min(md) {
+    grid-column: 1 / 9;
+  }
+  @include mq.media-min(lg) {
+    grid-column: 1 / 3;
+  }
+  @include mq.media-min(xl) {
+    grid-column: 1 / 4;
+  }
+}
+
+//Main
+@mixin make-grid-main-app() {
+  width: 100%;
+  max-width: 100%;
+  grid-column: 1 / 3;
+
+  @include mq.media-min(sm) {
+    grid-column: 1 / 5;
+  }
+  @include mq.media-min(md) {
+    grid-column: 1 / 9;
+  }
+  @include mq.media-min(lg) {
+    //grid-column: 1 / 9;
+  }
+  @include mq.media-min(xl) {
+    grid-column: 1 / 13;
+  }
+}
+
+//Main
+@mixin make-grid-main() {
+  width: 100%;
+  max-width: 100%;
+  grid-column: 1 / 3;
+
+  @include mq.media-min(sm) {
+    grid-column: 1 / 5;
+  }
+  @include mq.media-min(md) {
+    grid-column: 1 / 9;
+  }
+  @include mq.media-min(lg) {
+    grid-column: 3 / 9;
+  }
+  @include mq.media-min(xl) {
+    grid-column: 4 / 13;
+  }
+}
+
+//Footer
+@mixin make-grid-footer() {
+  width: 100%;
+  max-width: 100%;
+  grid-column: 1 / 3;
+
+  @include mq.media-min(sm) {
+    grid-column: 1 / 5;
+  }
+  @include mq.media-min(md) {
+    grid-column: 1 / 9;
+  }
+  @include mq.media-min(lg) {
+    //grid-column: 1 / 9;
+  }
+  @include mq.media-min(xl) {
+    grid-column: 1 / 13;
+  }
+}

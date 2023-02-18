@@ -1,0 +1,37 @@
+
+//Force-state @mixin
+@mixin make-force-state($name-state: false) {
+  $val: get-force-state($name-state);
+
+  @if($val not false and $val == 'active') {
+    &:active {
+      @content
+    }
+  } @else if($val not false and $val == 'hover') {
+    &:hover, &:not([disabled]):hover {
+      @content
+    }
+  } @else if($val not false and $val == 'visited') {
+    &:visited {
+      @content
+    }
+  } @else if($val not false and $val == 'focus') {
+    &:focus {
+      @content
+    }
+  } @else if($val not false and $val == 'focus-visible') {
+    &:focus-visible {
+      @content
+    }
+  } @else if($val not false and $val == 'focus-within') {
+    &:focus-within {
+      @content
+    }
+  } @else if($val not false and $val == 'targer') {
+    &:target {
+      @content
+    }
+  } @else {
+    @error 'ERROR make-force-state() has not value! => (active, hover, visited, focus, focus-visible, focus-within, targer)';
+  }
+}

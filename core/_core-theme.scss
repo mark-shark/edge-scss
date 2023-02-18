@@ -1,0 +1,58 @@
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:meta';
+@use 'theme/theme';
+//@use 'theme/palette';
+
+@mixin theme($theme-or-color-config) {
+  $theme: theme.private-legacy-get-theme($theme-or-color-config);
+}
+
+
+@function private-is-theme-object($value) {
+  @return meta.type-of($value) == 'map' and (
+    map.has-key($value, color) or
+    list.length($value) == 0
+  );
+}
+
+@function private-is-legacy-constructed-theme($value) {
+  @return meta.type-of($value) == 'map' and map.get($value, '_is-legacy-theme');
+}
+
+@function get-color-config($theme, $default: null) {
+  // If a configuration has been passed, return the config directly.
+  @if not private-is-theme-object($theme) {
+    @return $theme;
+  }
+  // If the theme has been constructed through the legacy theming API, we use the theme object
+  // as color configuration instead of the dedicated `color` property. We do this because for
+  // backwards compatibility, we copied the color configuration from `$theme.color` to `$theme`.
+  // Hence developers could customize the colors at top-level and want to respect these changes
+  // TODO: Remove when legacy theming API is removed.
+  @if private-is-legacy-constructed-theme($theme) {
+    @return $theme;
+  }
+  @if map.has-key($theme, color) {
+    @return map.get($theme, color);
+  }
+  @return $default;
+}
+
+@function create-own-theme($theme) {
+  @if not map.get($theme, color) {
+    @return $theme;
+  }
+  $color: map.get($theme, color);
+  @return map.merge($theme, $color);
+}
+
+@function get-theme($theme-color-config) {
+  @if get-theme($theme-color-config) {
+    @return $theme-color-config;
+  }
+  @return create-own-theme((
+    _is-legacy-theme: true,
+    color: $theme-color-config
+  ));
+}

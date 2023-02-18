@@ -1,0 +1,253 @@
+@use 'sass:map';
+@use '../theme/theme';
+@use '../theme/palette';
+@use '../color/color';
+
+$font-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-scheme: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+$font-size-default: 16px;
+$font-scheme: $font-default !default;
+$font-size-scheme: $font-size-default !default;
+$font-line-height: calc(#{$font-size-default} + 0.25rem) !default;
+
+$blue:            #0d6efd !default;
+$indigo:          #6610f2 !default;
+$purple:          #6f42c1 !default;
+$pink:            #d63384 !default;
+$red:             #dc3545 !default;
+$orange:          #fd7e14 !default;
+$yellow:          #ffc107 !default;
+$green:           #198754 !default;
+$teal:            #20c997 !default;
+$cyan:            #0dcaf0 !default;
+
+$color-black:     #000000;
+$color-dark:      #333333;
+$color-white:     #ffffff;
+$color-light:     #D3D3D3;
+
+$color-primary:   #0D6EFD;
+$color-secondary: #6f42c1;
+$color-accent:    #D63384;
+$color-success:   #20c997;
+
+$color-info:      #fd7e14;
+$color-warning:   #ffc107;
+$color-danger:    #dc3545;
+
+$color-shade-amount: 15%;
+$color-trans-amount: 0.5;
+
+// color variable map
+$get-colors: (
+  dark: (
+    base:       $color-dark,
+    light:      lighten($color-dark, $color-shade-amount),
+    dark:       darken($color-dark, $color-shade-amount),
+    ripple-5:   darken($color-dark, 5%),
+    ripple-10:  darken($color-dark, 10%),
+    trans:      transparentize($color-dark, $color-trans-amount)
+  ),
+  light: (
+    base:       $color-light,
+    light:      lighten($color-light, $color-shade-amount),
+    dark:       darken($color-light, $color-shade-amount),
+    ripple-5:   darken($color-light, 5%),
+    ripple-10:  darken($color-light, 10%),
+    trans:      transparentize($color-light, $color-trans-amount)
+  ),
+  primary: (
+    base:       $color-primary,
+    light:      lighten($color-primary, $color-shade-amount),
+    dark:       darken($color-primary, $color-shade-amount),
+    ripple-5:   darken($color-primary, 5%),
+    ripple-10:  darken($color-primary, 10%),
+    trans:      transparentize($color-primary, $color-trans-amount)
+  ),
+  secondary: (
+    base:       $color-secondary,
+    light:      lighten($color-secondary, $color-shade-amount),
+    dark:       darken($color-secondary, $color-shade-amount),
+    ripple-5:   darken($color-secondary, 5%),
+    ripple-10:  darken($color-secondary, 10%),
+    trans:      transparentize($color-secondary, $color-trans-amount)
+  ),
+  accent: (
+    base:       $color-accent,
+    light:      lighten($color-accent, $color-shade-amount),
+    dark:       darken($color-accent, $color-shade-amount),
+    ripple-5:   darken($color-accent, 5%),
+    ripple-10:  darken($color-accent, 10%),
+    trans:      transparentize($color-accent, $color-trans-amount)
+  ),
+  success: (
+    base:       $color-success,
+    light:      lighten($color-success, $color-shade-amount),
+    dark:       darken($color-success, $color-shade-amount),
+    ripple-5:   darken($color-success, 5%),
+    ripple-10:  darken($color-success, 10%),
+    trans:      transparentize($color-success, $color-trans-amount)
+  ),
+  info: (
+    base:       $color-info,
+    light:      lighten($color-info, $color-shade-amount),
+    dark:       darken($color-info, $color-shade-amount),
+    ripple-5:   darken($color-info, 5%),
+    ripple-10:  darken($color-info, 10%),
+    trans:      transparentize($color-info, $color-trans-amount)
+  ),
+  warning: (
+    base:       $color-warning,
+    light:      lighten($color-warning, $color-shade-amount),
+    dark:       darken($color-warning, $color-shade-amount),
+    ripple-5:   darken($color-warning, 5%),
+    ripple-10:  darken($color-warning, 10%),
+    trans:      transparentize($color-warning, $color-trans-amount)
+  ),
+  danger: (
+    base:       $color-danger,
+    light:      lighten($color-danger, $color-shade-amount),
+    dark:       darken($color-danger, $color-shade-amount),
+    ripple-5:   darken($color-danger, 5%),
+    ripple-10:  darken($color-danger, 10%),
+    trans:      transparentize($color-danger, $color-trans-amount)
+  )
+);
+
+@function get-color($color-name, $color-variant:null) {
+  // color variant is optional
+  @if ($color-variant != null) {
+    // map inception
+    @return map-get(map-get($get-colors, $color-name), $color-variant);
+  } @else {
+    @return map-get($get-colors, $color-name);
+  }
+}
+
+$dark-color:        get-color(dark, base) !default;
+$light-color:       get-color(light, base) !default;
+$primary-color:     get-color(primary, base) !default;
+$secondary-color:   get-color(secondary, base) !default;
+$accent-color:      get-color(accent, base) !default;
+$success-color:     get-color(success, base) !default;
+$info-color:        get-color(info, base) !default;
+$warning-color:     get-color(warning, base) !default;
+$danger-color:      get-color(danger, base) !default;
+
+$primary-color-ripple-5:  get-color(primary, ripple-5) !default;
+$primary-color-ripple-10: get-color(primary, ripple-10) !default;
+
+$accent-color-ripple-5:   get-color(accent, ripple-5) !default;
+$accent-color-ripple-10:  get-color(accent, ripple-10) !default;
+
+$secondary-color-ripple-5:  get-color(secondary, ripple-5) !default;
+$secondary-color-ripple-10: get-color(secondary, ripple-10) !default;
+
+$success-color-ripple-5:  get-color(success, ripple-5) !default;
+$success-color-ripple-10: get-color(success, ripple-10) !default;
+
+$info-color-ripple-5:   get-color(info, ripple-5) !default;
+$info-color-ripple-10:  get-color(info, ripple-10) !default;
+
+$warning-color-ripple-5:  get-color(warning, ripple-5) !default;
+$warning-color-ripple-10: get-color(warning, ripple-10) !default;
+
+$danger-color-ripple-5:   get-color(danger, ripple-5) !default;
+$danger-color-ripple-10:  get-color(danger, ripple-10) !default;
+
+$light-color-ripple-5:  get-color(light, ripple-5) !default;
+$light-color-ripple-10: get-color(light, ripple-10) !default;
+
+$dark-color-ripple-5:   get-color(dark, ripple-5) !default;
+$dark-color-ripple-10:  get-color(dark, ripple-10) !default;
+
+// Default Colors
+
+$theme-text-color: $color-dark !default;
+$theme-bg-color: $color-white !default;
+
+$theme-light-color: $color-light !default;
+$theme-dark-color: $color-dark !default;
+$theme-white-color: $color-white !default;
+$theme-black-color: $color-black !default;
+
+$contrast-theme-color: $theme-white-color !default;
+
+@mixin make-root() {
+
+  :root {
+    --text-theme-color: #{$theme-text-color};
+    --bg-theme-color: #{$theme-bg-color};
+
+    --primary-color: #{$primary-color};
+    --accent-color: #{$accent-color};
+    --second-color: #{$secondary-color};
+    --success-color: #{$success-color};
+    --info-color: #{$info-color};
+    --warning-color: #{$warning-color};
+    --danger-color: #{$danger-color};
+    --light-color: #{$light-color};
+    --dark-color: #{$dark-color};
+    --white-color: #{$color-white};
+    --black-color: #{$color-black};
+
+    --primary-color-ripple-5: #{$primary-color-ripple-5};
+    --primary-color-ripple-10: #{$primary-color-ripple-10};
+    --accent-color-ripple-5: #{$accent-color-ripple-5};
+    --accent-color-ripple-10: #{$accent-color-ripple-10};
+    --second-color-ripple-5: #{$secondary-color-ripple-5};
+    --second-color-ripple-10: #{$secondary-color-ripple-10};
+    --success-color-ripple-5: #{$success-color-ripple-5};
+    --success-color-ripple-10: #{$success-color-ripple-10};
+    --info-color-ripple-5: #{$info-color-ripple-5};
+    --info-color-ripple-10: #{$info-color-ripple-10};
+    --warning-color-ripple-5: #{$warning-color-ripple-5};
+    --warning-color-ripple-10: #{$warning-color-ripple-10};
+    --danger-color-ripple-5: #{$danger-color-ripple-5};
+    --danger-color-ripple-10: #{$danger-color-ripple-10};
+    --light-color-ripple-5: #{$light-color-ripple-5};
+    --light-color-ripple-10: #{$light-color-ripple-10};
+    --dark-color-ripple-5: #{$dark-color-ripple-5};
+    --dark-color-ripple-10: #{$dark-color-ripple-10};
+
+    --font-schema-main: #{$font-scheme};
+    --font-schema-main-size: #{$font-size-scheme};
+    --font-schema-main-line-height: #{$font-line-height};
+
+    font-family: var(--font-schema-main);
+    line-height: var(--font-schema-main-line-height);
+    font-weight: 400;
+    letter-spacing: normal;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    .theme-dark {
+      --text-theme-color: #{$color-white};
+      --bg-theme-color: #{$color-dark};
+    }
+  }
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    border: solid rgba(33, 33, 33, 0.25);
+    border-width: 0 1px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, .25);
+    border-radius: 5px;
+    width: 10px;
+  }
+}
+
+@mixin take-color-root($config) {
+
+}

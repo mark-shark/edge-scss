@@ -1,0 +1,53 @@
+@use 'root/root';
+@use 'body/body';
+@use 'preflights/preflights';
+@use 'box-sizing/box-sizing';
+@use 'clearfix/clearfix';
+@use 'html/html';
+@use 'host/host';
+@use 'color-scheme/color-scheme';
+
+@mixin core($min-width: false) {
+  @include root.make-root();
+  @include html.make-html();
+  @include body.body($min-width);
+  @include preflights.preflights();
+  @include box-sizing.box-sizing();
+}
+
+@mixin html() {
+  @include html.make-html();
+}
+
+@mixin body($min-width: false) {
+  @include body.body($min-width);
+}
+
+@mixin preflights() {
+  @include preflights.preflights();
+}
+
+@mixin box-sizing() {
+  @include box-sizing.box-sizing();
+}
+
+@mixin clearfix() {
+  @include clearfix.make-clearfix();
+}
+
+@mixin root() {
+  @include root.make-root();
+}
+
+@mixin host($font-size: false) {
+  @include host.make-host($font-size);
+}
+
+@mixin color-schema($name) {
+  @include color-scheme.make-color-scheme($name)
+}
+
+
+@mixin root-all-theme-colors() {
+
+}
