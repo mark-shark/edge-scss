@@ -17,6 +17,7 @@ $darken-color-10: darken($dark-secondary-text, 10%);
   &:hover {
     background: if($background-color, darken($background-color, 5%) radial-gradient(circle, transparent 1%, darken($background-color, 5%) 1%) center/15000%, var(--dark-color-5) radial-gradient(circle, transparent 1%, var(--dark-color-5) 1%) center/15000%);
   }
+
   &:active {
     background-color: if($background-color, darken($background-color, 10%), var(--dark-color-10));
     background-size: 100%;
